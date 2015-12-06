@@ -1,0 +1,30 @@
+body{
+	font-size: 1em;
+	font-family: Verdana;
+}
+#myPanelFrame {
+	width: 100%;
+	overflow-x: hidden;
+	height: 200px;
+	overflow-y: auto;
+}
+.slidingpanel_tab {
+	background-color: #eee;
+	color: #aaa;
+	text-align: center;
+	font-size: 18px;
+	line-height: 22px;
+	cursor: pointer;
+	padding: 2px;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+}
+
+.slidingpanel_element {
+	border: 1px #eee solid;
+	height: inherit;
+	overflow-x: hidden;
+}
+.hidden{
+	visibility: hidden;
+}

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>ASpanel</title>
+
+		<link rel="stylesheet" type="text/css" href="js/libs/jquery-ui-1.11.4/jquery-ui.css" />
+		<!-- ASpanel stylesheets -->
+		<link href="css/normalize.css" rel="stylesheet"/>
+		<link href="css/toolbar.css" rel="stylesheet"/>
+
+		<!-- JavaScript libraries -->
+		<!-- <script type="text/javascript" src="js/libs/jquery-1.10.2.js"></script> -->
+		<script type="text/javascript" src="js/libs/handlebars-v2.0.0.js"></script>
+		<script type="text/javascript" src="js/libs/jquery-ui-1.11.4/external/jquery/jquery.js"></script>
+		<script type="text/javascript" src="js/libs/jquery-ui-1.11.4/jquery-ui.min.js"></script>
+
+		<!-- JavaScript application files -->
+		<script type="text/javascript" src="js/app.js"></script>
+		<script type="text/javascript" src="js/config.js"></script>
+		<script type="text/javascript" src="js/components.js"></script>
+		<script type="text/javascript" src="js/gpii.js"></script>
+
+
+	</head>
+
+	<body>
+	
+		<!-- #### ASpanel ####-->
+		
+		<div id="ASpanel-application">
+			
+		</div>
+
+		
+		<!-- #### TEMPLATES ####-->
+			
+		<script id="category-tabs-template" type="text/x-handlebars-template">
+			
+			<!-- #### CATEGORY TABS #### -->
+			
+			<div id="category-tabs">
+				<ul>
+					<li>
+						<a href="#category-1">{{ApplicationLabel tabs.category_1}}</a>
+					</li>
+					<li>
+						<a href="#category-2">{{ApplicationLabel tabs.category_2}}</a>
+					</li>
+					<li>
+						<a href="#category-3">{{ApplicationLabel tabs.category_3}}</a>
+					</li>
+					<li>
+						<a href="#category-4">{{ApplicationLabel tabs.category_4}}</a>
+					</li>
+					<li>
+						<a href="#category-5">{{ApplicationLabel tabs.category_5}}</a>
+					</li>
+				</ul>
+	
+				<button id="myButton" style="float:right;">
+					{{ApplicationLabel buttons.resetButton}}
+				</button>
+					
+				<!-- #### CATEGORY TABS CONTENT #### -->
+				
+				<div id="category-1" role="tabpanel" tabindex="0">
+					<!-- TEXT AND DISPLAY -->
+				
+				
+				<div id="category-1-dynamic-components">
+					<!-- DYNAMIC CREATED COMPONENTS -->
+					<ul class="componentlist">
+						
+											
+					</ul>
+					<!-- END OF DYNAMIC CREATED COMPONENTS -->			
+				</div>	
+						
+						
+				<div id="category-1-static-components">		
+					<!-- STATIC CUSTOM COMPONENTS -->
+					<!-- For debuggin purpose. -->
+					<ul class="componentlist">
+					
+						<!-- DROPDOWN COMPONENT -->
+						<!-- <li>
+							<div class="component dropdown-component">
+								<label for="textSytle-dropdown">Textstyle</label>
+								<br />
+								<select name="textstyle" id="textSytle-dropdown">
+									<option value="default">Default</option>
+									<option value="times">Times New Roman</option>
+									<option value="arial">Arial</option>
+									<option value="verdana">Verdana</option>
+								</select>
+							</div>
+							
+						</li> -->
+						
+						<!-- SLIDER COMPONENT -->
+						<!-- <li>
+							<div class="component slider-component">
+									
+								<p class="component-label"><label for="textSize">sssgsh</label></p>
+								<div class="force-left clearfix">
+									<div class="force-left slider-label-min">
+										<span>fgsdf</span>
+									</div>
+									<div class="force-left">
+										<div id="textSize_slider"></div>
+									</div>
+									<div class="force-left slider-label-max">
+										<span>dgagf</span>
+									</div>
+								</div>
+								<div class="slider-value" >
+									<input class="slider-value" id="textSize" type="text" readonly>fsgsf</input>
+								</div>
+							</div>
+						</li> -->
+						
+						<!-- CHECKBOX Component -->
+						<!-- <li>
+							<div class="component checkbox-component">
+								<input type="checkbox" id="ckb_toc" class="force-left">
+								
+								<div class="checkbox_text_container">
+									<label for="ckb_toc">Show Table of Content</label>
+									<p class="explanation">Adds a table of contents to the top of the page</p>
+								</div>
+							</div>
+						</li> -->
+						
+						
+						</ul> <!-- END COMPONENTLIST -->			
+						
+				</div>
+						
+												
+			
+				</div>
+				<div id="category-2">
+					Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+				</div>
+				<div id="category-3">
+					Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+				</div>
+				<div id="category-4">
+					Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+				</div>
+				<div id="category-5">
+					Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+				</div>
+				
+			</div>	
+		</script>
+
+
+		<script id="slider-AScomponent" type="text/x-handlebars-template">
+			
+				<!-- SLIDER COMPONENT -->
+				<li>
+					<div class="component slider-component">
+							
+						<p class="component-label"><label for="{{UIComponentID ui_input_id}}">{{UIComponentLabel title}}</label></p>
+						<div class="force-left clearfix">
+							<div class="force-left slider-label-min">
+								<span>{{UIComponentLabel minText}}</span>
+							</div>
+							<div class="force-left">
+								<div id="{{UIComponentID ui_component_id}}"></div>
+							</div>
+							<div class="force-left slider-label-max">
+								<span>{{UIComponentLabel maxText}}</span>
+							</div>
+						</div>
+						<div class="slider-value" >
+							<input class="slider-value" id="{{UIComponentID ui_input_id}}" type="text" readonly>{{UIComponentLabel inputLabel}}</input>
+						</div>
+					</div>
+				</li>
+			
+		</script>
+
+
+		<script id="dropdown-AScomponent" type="text/x-handlebars-template">
+			<!-- DROPDOWN COMPONENT -->
+			<li>
+				<div class="component dropdown-component">
+					<label for="{{UIComponentID ui_component_id}}">{{UIComponentLabel title}}</label>
+					<br />
+					<select name="{{UIComponentID ui_component_id}}" id="{{UIComponentID ui_component_id}}">
+						{{#each options}}
+						<option value="{{option_id}}">{{name}}</option>
+						{{/each}}
+					</select>
+				</div>			
+			</li>
+	
+		</script>
+		
+		
+		<script id="checkbox-AScomponent" type="text/x-handlebars-template">
+			<!-- CHECKBOX COMPONENT-->
+			<li>
+				<div class="component checkbox-component">
+					<input type="checkbox" id="{{UIComponentID ui_component_id}}" class="force-left">
+					
+					<div class="checkbox_text_container">
+						<label for="{{UIComponentID ui_component_id}}">{{UIComponentLabel title}}</label>
+						<p class="explanation">{{UIComponentLabel explanation}}</p>
+					</div>
+				</div>
+			</li>
+			
+		</script>
+
+
+
+
+		<!-- main application template, builds up the tab structure -->
+		<script type="text/x-handlebars" data-template-name="application">
+			<form id="options">
+			<div id="tablist_container" class="clearfix">
+			<div>
+			<button id="reset">Reset All</button>
+			</div>
+
+			<ul id="tablist" role="tablist">
+			{{#each category in model itemController="category"}}
+			<li role="presentation">
+			{{#link-to "category" category.id tabindex="0" ariaRole="tab" aria-controls=category.contentId id=category.category_id}}{{category.displayName}}{{/link-to}}
+			</li>
+			{{/each}}
+			</ul>
+			</div>
+			{{outlet}}
+			</form>
+		</script>
+
+		<!-- template for a category, equates to the tab content -->
+		<script type="text/x-handlebars" data-template-name="category">
+			<div {{bind-attr id=contentId}} {{bind-attr aria-labelledby=category_id}} role="tabpanel" tabindex="0">
+			<ul class="componentlist">
+			{{#each component in components itemController="component"}}
+			<li>
+			{{#if component.typeSlider}}
+			{{slider-box component=component "}}
+			{{/if}}
+			{{#if component.typeDropdown}}
+			{{dropdown-box component=component "}}
+			{{/if}}
+			{{#if component.typeCheckbox}}
+			{{checkbox-box component=component "}}
+			{{/if}}
+			</li>
+			{{/each}}
+			</ul>
+			</div>
+		</script>
+
+		<!-- template for a slider component -->
+		<script type="text/x-handlebars" data-template-name="components/slider-box">
+			<label {{bind-attr for=component.ui_component_id}}>{{component.displayTitle}}</label>
+			<div {{ bind-attr id=component.ui_component_id}}>
+
+			<div class="force-left clearfix">
+			<div class="force-left">
+			<span>{{component.displayMinText}}</span>
+			</div>
+			<div class="force-left">
+			{{input type="range" class="slider" min=component.minValue max=component.maxValue step=component.stepSize value=sliderValue}}
+			</div>
+			<div class="force-left">
+			<span>{{component.displayMaxText}}</span>
+			</div>
+			</div>
+			<div>
+			{{input type="number" class="slider-input" min=component.minValue max=component.maxValue step=component.stepSize value=sliderValue}}
+			{{component.displayInputLabel}}
+			</div>
+			</div>
+		</script>
+
+		<!-- template for a dropdown component -->
+		<script type="text/x-handlebars" data-template-name="components/dropdown-box">
+			<label {{bind-attr for=component.ui_component_id}}>{{component.displayTitle}}</label>
+			{{view "select" id=component.ui_component_id
+			content=component.options
+			selection=selectedOption
+			optionValuePath="content.option_id"
+			optionLabelPath="content.name"}}
+		</script>
+
+		<!-- template for a checkbox component -->
+		<script type="text/x-handlebars" data-template-name="components/checkbox-box">
+			{{input type="checkbox" id=component.ui_component_id checked=isChecked class="force-left"}}
+			<div class="checkbox_text_container">
+			<label {{bind-attr for=component.ui_component_id}}>{{component.displayTitle}}</label>
+			<p class="explanation">{{component.displayExplanation}}</p>
+			</div>
+		</script>
+
+		<!-- HTML5 Slider -->
+		<!-- <div class="force-left clearfix">
+		<div class="force-left">
+		<span>big</span>
+		</div>
+		<div class="force-left">
+		<input type="range" class="slider" min="1" max="2" step="0.1" value=sliderValue>
+		</div>
+		<div class="force-left">
+		<span>small</span>
+		</div>
+		</div>
+		<div>
+		<input type="number" class="slider-input" min="1" max="2" step="0.1" value=sliderValue>
+		times
+		</div> -->
+
+	</body>
+</html>

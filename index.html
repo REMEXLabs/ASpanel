@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+	
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Testseite</title>
+		<meta name="description" content="">
+		<meta name="author" content="Annabell">
+
+		<link href="css/normalize.css" rel="stylesheet" />
+		<link href="css/main.css" rel="stylesheet">
+
+	</head>
+
+	<body>
+
+		<div id="panel-container">
+			<iframe id="myASpanel-iFrame" frameborder="0" src="toolbar/toolbar.html" height="100%" width="100%"></iframe>
+		</div>
+		<div id="toc-container" class="hidden">
+			<p>Table of Contents</p>
+			<ul></ul>
+		</div>
+		<div>
+			<header>
+				<h1>Testseite</h1>
+			</header>
+			
+			<div>
+				<h2 id="section_1">Absatz 1</h2>
+				<p>
+					Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
+					magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+					gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+					elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos
+					et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor
+					sit amet.
+				</p>
+				<h2 id"section_2">Absatz 2</h2>
+				<p>
+					Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
+					magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+					gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+					elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos
+					et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor
+					sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
+					et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+					clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Duis autem vel eum iriure dolor in
+					hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et
+					accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+					Lorem ipsum dolor sit amet,
+				</p>
+
+			</div>
+
+			<footer>
+				<p>Lorem ipsum dolor sit amet</p>
+			</footer>
+		</div>
+
+		<!-- <script type="text/javascript" src="js/libs/jquery-1.10.2.js"></script> -->
+		
+		<!-- <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.0.min.js"></script> -->
+		<script type="text/javascript" src="js/libs/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="js/libs/jquery.mypanel.js"></script>
+		<script type="text/javascript" src="js/libs/jquery.tableofcontents.js"></script>
+
+		<script type="text/javascript" src="js/functions/ASfunctions.js"></script>
+
+		<script type="text/javascript">
+		var defaultTextStyle = null;
+			$(document).ready(function() {
+				$('#panel-container').mypanel({
+					tabText : 'Open/Close Toolbar',
+					openByDefault : true
+				});
+				$('#panel-container').css({"border": "none"});
+				//defaultTextStyle = getDefaultTextStyle();
+			});
+		</script>
+	</body>
+</html>
