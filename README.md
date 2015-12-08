@@ -1,4 +1,4 @@
-# Accessibility Settings Panel (ASpanel) 
+# Accessibility Support Panel (ASpanel) 
 
 A panel for accessibility settings that can be included in web sites. 
 
