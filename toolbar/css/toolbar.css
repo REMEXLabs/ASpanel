@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Annabell Schmidt, Patrick Muenster
+ * Copyright 2015 Hochschule der Medien (HdM) / Stuttgart Media Universit (Annabell Schmidt, Patrick Muenster)
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -44,7 +44,7 @@
 .componentlist {
     margin-top: 0px;
     margin-bottom: 0px;  
-   
+
 }
 
 .componentlist li {
@@ -54,11 +54,11 @@
     /*border: 1px solid grey;*/
 }
 
-.componentlist li div.ui-slider{
+.componentlist li div.ui-slider {
     width:100px;
     /** only for testing purposes */
     /*border: 1px solid grey;*/
-    }
+}
 
 .component input {
     border: none;
@@ -133,11 +133,11 @@ div.slider-value {
 }
 
 .clearfix:after {
-	content: ".";
-	clear: both;
-	display: block;
-	visibility: hidden;
-	height: 0px;
+    content: ".";
+    clear: both;
+    display: block;
+    visibility: hidden;
+    height: 0px;
 }
 
 /* CHECKBOX */
@@ -217,3 +217,4 @@ input[type="checkbox"] {
 .slider-input {
 	width: 50px;
 }
+
