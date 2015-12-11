@@ -27,9 +27,10 @@ function showTableOfContents(show) {
 	if (show) {
 		$('#toc-container ul').tableOfContents();
 		$('#toc-container').removeClass('hidden');
-		
+
 	} else {
 		$('#toc-container').addClass('hidden');
 		$('#toc-container ul').text('');
 	}
 }
+

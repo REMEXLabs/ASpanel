@@ -26,3 +26,4 @@ function changeLineSpacing(value) {
 	var newLineSpacing = value + 'em';
 	$('body').css('line-height', newLineSpacing);
 }
+

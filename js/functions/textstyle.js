@@ -25,9 +25,9 @@
 function changeTextStyle(value){
 	if (value == 'Default'){
 		$('body').css('font-family', '"' + defaultTextStyle + '"');
-	}else{
+	} else {
 		$('body').css('font-family', '"' + value + '"');	
-	}	
+	}
 }
 
 /**
@@ -37,3 +37,4 @@ function changeTextStyle(value){
 function getDefaultTextStyle(){
 	return $('body').css('font-family');
 }
+

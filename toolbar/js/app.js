@@ -18,7 +18,6 @@
  * @author Patrick Münster
  */
 
-
 function setLanguage(pageLanguage) {
     var context = {};
     
@@ -69,10 +68,10 @@ function createComponent(component) {
 
 /**
  * All ASpanel components with a default value that should be overwritten 
- * by GPII Chome Extension should be called here. 
+ * by GPII Chrome Extension should be called here. 
  */ 
 function overwriteDefaultWithGpiiSettings() {
-    console.log("Overwirte Default Values");
+    console.log("Overwrite Default Values");
     
     textSizeSlider.overwriteDefault();
     linepacingSlider.overwriteDefault();
@@ -81,7 +80,7 @@ function overwriteDefaultWithGpiiSettings() {
     picsupportDropdown.overwriteDefault();
     
 }
- 
+
 
 ////////////////////////////
 //// DECLARE COMPONENTS ////
@@ -100,7 +99,7 @@ var tableOfContent_ckb;
 
 
 
- 
+
 
 $(function() {
 
@@ -113,36 +112,36 @@ $(function() {
      * Else use defaultValues. The code below waits for a server response!
      */
     GPIIconnector.getPreferenceSet(null, function(){
-        
-         
+
+
         ////////////////////////////
         /////// GET LANGUAGE ///////
         ////////////////////////////
-    
-    
+
+
         ///////////////////////////////////////
         ////// REGISTER HANDLEBAR HELPER //////
         ///////////////////////////////////////
-        
+
         /**
          * The helper ApplicationLabel provides all labels for the application.  
          */  
         Handlebars.registerHelper('ApplicationLabel', function(uiLabel) {
-         
+
             return uiLabel[getPanelLanguage()];
             // example call: {{ApplicationLabel tabs.category_1}} 
         });
-        
+
         /**
          * The helper UIComponentLabel provides all labels for the components.
          */
         Handlebars.registerHelper('UIComponentLabel', function(componentLabel) {        
-           
+
            // gets any labels depending on the language.
            return componentLabel[getPanelLanguage()];
            // example call: {{UIComponentLabel textSize_silder.minText}}  
         });
-        
+
          /**
          * The helper UIComponentID provides all unique ids for the component elements.
          */
@@ -150,13 +149,13 @@ $(function() {
            return componentLabel;
            // example call: {{UIComponentID ui_component_id}}  
         });
-        
-        
+
+
         ////////////////////////////
         ////// INIT TEMPLATES //////
         ////////////////////////////
-        
-        
+
+
         /**
          * Create category tabs with category-tabs-template.
          * Uses ApplicationLabel object for multilingual labels. 
@@ -166,42 +165,42 @@ $(function() {
         // Giving the template the ApplicationLabels.
         var application_html = application_template(ApplicationLabels);
         $("#ASpanel-application").html(application_html);
-        
-           
+
+
         // var category_1_components_source = $("#category-1-components").html();
         // var category_1_components_template = Handlebars.compile(category_1_components_source);
         // // Giving the template the UIComponentList.
         // var html = category_1_components_template(UIComponentList);
-         
+
         // //console.log(html);
         // $("#category-1").html(html);
-        
+
         var html_cat1 = "";
-        
+
         for (var component in UIComponentList) {
             /** 
              * component contains a string with the component name.
              * Use the following syntax to call a component object from the UIComponentList by name:
              * UIComponentList[component]
-             */        
-            
+             */
+
             //console.log(UIComponentList[component].category);
-            
+
             switch(UIComponentList[component].category) {
-                
+
                 case "cat1":
-                    
+
                     html_cat1 += createComponent(UIComponentList[component]);            
-                    break;         
+                    break;
             }
-        }    
-        
+        }
+
         //console.log(html_cat1);
-        
+
         // Append html code.
         $("#category-1-dynamic-components .componentlist").html(html_cat1);
-        
-        
+
+
         //var category_1_components_source = $("#category-1-components").html();
         //var category_1_components_template = Handlebars.compile(category_1_components_source);
         // Giving the template the UIComponentList.
@@ -211,103 +210,103 @@ $(function() {
         //console.log(html);
         //console.log(html);
         //$("#category-1-dynamic-components .componentlist").html(html);
-        
-    
+
+
         ////////////////////////////
         //////// INIT TABS /////////
         ////////////////////////////
-    
+
         // option object
         var myTabOptions = {
             active : 0, // Number of active tab starting by 0
             collapsible : true
         };
-    
+
         $("#category-tabs").tabs(myTabOptions);
-        
+
         // modify dropdown elements with jquery 
         //$("#picsupport_dropdown").selectmenu();
-        
-     
+
+
         ////////////////////////////
         ////// INIT COMPONETS //////
         ////////////////////////////
-    
+
         //#### Slider ####
-    
+
         textSizeSlider = new AS_Slider();
         textSizeSlider.init("textSize_slider");
-        
+
         linepacingSlider = new AS_Slider();
         linepacingSlider.init("lineSpacing_slider");
-        
+
         textStyleDropdown = new AS_DropDown();
         textStyleDropdown.init("textStyle_dropdown");
-        
+
         picsupportDropdown = new AS_DropDown();
         picsupportDropdown.init("picsupport_dropdown");
-        
+
         tableOfContent_ckb = new AS_CheckBox();
         tableOfContent_ckb.init("table_of_content");
         //console.log(tableOfContent_ckb.getValue());
-         
-        
-        
+
+
+
         ////////////////////////////
         ////// RESET FUNCTIONS /////
         ////////////////////////////
-    
+
         /**
-         * All ASpanel components that should be reseted by a reset event should be called here.
+         * All ASpanel components that should be reset by a reset event should be called here.
          */
         function resetAll() {
             console.log("Reset all");
-    
+
              textSizeSlider.reset();
              tableOfContent_ckb.reset();
              textStyleDropdown.reset();
         }
-        
+
         /////////////////////////////////
         ////// OVERWRITE FUNCTIONS //////
         /////////////////////////////////
-        
+
         /**
          * All ASpanel components with a default value that should be overwritten 
-         * by cookies shoul by called here. 
+         * by cookies should by called here. 
          */
         function overwriteDefaultWithCookieSettings() {
-            console.log("Overwirte Default Values");
-            
+            console.log("Overwrite Default Values");
+
             textSizeSlider.overwriteDefault();
             linepacingSlider.overwriteDefault();
             textStyleDropdown.overwriteDefault();
             tableOfContent_ckb.overwriteDefault();
             picsupportDropdown.overwriteDefault();
-            
+
         }
-    
+
         // Sow all components in UIComponentList
         //console.log("Components in UIComponentList: ");
         for (var key in UIComponentList) {
-            // console.log(key);    
+            // console.log(key);
         }
-        
-        
+
+
         ///////////////////////////////
         ////// INIT EVENTHANDLER //////
         ///////////////////////////////
-        
+
         /**
          * All eventhandler for the ASpanel UI are initalized here. 
          */
-        
+
         // Add Listener to Reset Button.
         document.getElementById("myButton").addEventListener('click', function() {
-            overwriteDefault();
+            overwriteDefault(); //@@todo: Pressing "Zurücksetzen" triggers an exception (Chrome console): Uncaught ReferenceError: overwriteDefault is not defined
             resetAll();
         }, false);
-    
+
         // $("#textSize-slider").slider({
         // range : "min",
         // min : 1,
@@ -319,23 +318,24 @@ $(function() {
         // }
         // });
         // $("#textSize").val($("#textSize-slider").slider("value"));
-        
+
         // end of GPIIConnector call
     });
 
 });
 
- function init() {
-    //console.log(textSizeSlider.title);
-    
 
- //
+function init() {
+    //console.log(textSizeSlider.title);
+
+
+    //
 }
 
 $(document).ready(function(){
-    
+
     init();
-    
+
 });
 
 

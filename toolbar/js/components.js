@@ -35,7 +35,7 @@ var AS_Slider= function() {
     this.slider_ID = "";
     this.ui_component_id = "";
     this.ui_input_id = "";
-    
+
 
     this.reset = function() {
         console.log("Reset " + this.slider_ID);
@@ -44,11 +44,11 @@ var AS_Slider= function() {
         $("#" + this.ui_input_id).val(this.value);
         UIComponentList[this.slider_ID].changeEvent(this.value);
         console.log("Value of " + this.slider_ID + " is set to " + parseFloat(this.getValue()));
-        
+
     };
-    
+
     /**
-     * Initialize component. Sets object parameter and applys eventhandler.
+     * Initialize component. Sets object parameter and applies eventhandler.
      * @param {string} slider_ID ID of the HTML container used for the component.
      */
     this.init = function(slider_ID) {
@@ -60,7 +60,7 @@ var AS_Slider= function() {
         this.ui_input_id = UIComponentList[slider_ID].ui_input_id;
         this.minValue = UIComponentList[slider_ID].minValue;
         this.maxValue = UIComponentList[slider_ID].maxValue;
-            
+
         // Init slider
         $("#" + slider_ID).slider({
             range : this.range,
@@ -80,7 +80,7 @@ var AS_Slider= function() {
         // Run change function one time for initialisation.
         UIComponentList[slider_ID].changeEvent(this.value);
     };
-    
+
     /**
      * Set the slider to value. 
      */
@@ -95,7 +95,7 @@ var AS_Slider= function() {
     this.getValue = function() {     
         return $("#" + this.slider_ID).slider("value");
     };
-    
+
     /**
      * Overwirtes the default value after getting Settings from GPII or Cookie. 
      */
@@ -131,13 +131,13 @@ var AS_DropDown = function() {
         UIComponentList[this.dropdown_ID].changeEvent(this.value);
         console.log("Value of " + this.dropdown_ID + " is set to " + this.getValue());
     };
-    
+
     this.getDefaultValue = function() {
-        
+
     };
 
     /**
-     * Initialize component. Sets object parameter and applys eventhandler.
+     * Initialize component. Sets object parameter and applies eventhandler.
      * @param {string} dropdown_ID ID of the HTML container used for the component.
      */
     this.init = function(dropdown_ID) {
@@ -146,22 +146,22 @@ var AS_DropDown = function() {
         this.value = this.defaultValue;
         this.dropdown_ID = dropdown_ID;
         this.ui_component_id = UIComponentList[dropdown_ID].ui_component_id;
-        
-        
-        // Init dropdown    
+
+
+        // Init dropdown 
         $("#" + dropdown_ID).change( function() {
             console.log("Dropdown List " + dropdown_ID + " changed");
             this.value = $("#" + dropdown_ID).val();
             UIComponentList[dropdown_ID].changeEvent(this.value);          
         });
-        
+
         $("#" + this.dropdown_ID).val(this.value);
-        
+
         // Run change function one time for initialisation.
         UIComponentList[dropdown_ID].changeEvent(this.value);
-        
+
     };
-    
+
      /**
      * Set the checkbox to value. 
      */
@@ -171,11 +171,11 @@ var AS_DropDown = function() {
         UIComponentList[this.dropdown_ID].changeEvent(value);
         console.log("Value of " + this.dropdown_ID + " is set to " + this.getValue());
     };
-    
+
     this.getValue = function() {  
         return $("#" + this.dropdown_ID).val();
     };
-    
+
     this.overwriteDefault = function () {
         //console.log("Overwrite default value of " + this.dropdown_ID);
         //this.defaultValue = UIComponentList[this.dropdown_ID].defaultValue.option_id;
@@ -183,7 +183,7 @@ var AS_DropDown = function() {
         $("#" + this.dropdown_ID).val(this.value);
         UIComponentList[this.dropdown_ID].changeEvent(this.value);   
     };
-    
+
 };
 
 
@@ -199,7 +199,7 @@ var AS_CheckBox = function() {
     this.defaultValue = false;
     this.checkbox_ID = "";
     this.ui_component_id = "";
-    
+
 
     this.reset = function() {
         console.log("Reset " + this.checkbox_ID);
@@ -208,9 +208,9 @@ var AS_CheckBox = function() {
         UIComponentList[this.checkbox_ID].changeEvent(this.value);
         console.log("Value of " + this.checkbox_ID + " is set to " + this.getValue());
     };
-    
+
     /**
-     * Initialize component. Sets object parameter and applys eventhandler.
+     * Initialize component. Sets object parameter and applies eventhandler.
      * @param {string} checkbox_ID ID of the HTML container used for the component.
      */
     this.init = function(checkbox_ID) {
@@ -219,22 +219,22 @@ var AS_CheckBox = function() {
         this.value = this.defaultValue;
         this.checkbox_ID = checkbox_ID;
         this.ui_component_id = UIComponentList[checkbox_ID].ui_component_id;
-        
+
         // Init checkbox               
         $("#" + checkbox_ID).change(function() {
             console.log("Checkbox " + checkbox_ID + " clicked");
-           
+
             UIComponentList[checkbox_ID].changeEvent($(this).is(":checked"));
             this.value = $(this).is(":checked");
-           
+
         }); 
 
         $("#" + checkbox_ID).prop('checked', this.value);
-        
+
         // Run change function one time for initialisation.
         UIComponentList[checkbox_ID].changeEvent(this.value);
     };
-    
+
      /**
      * Set the checkbox to value. 
      */
@@ -244,11 +244,11 @@ var AS_CheckBox = function() {
         UIComponentList[this.checkbox_ID].changeEvent(value);
         console.log("Value of " + this.checkbox_ID + " is set to " + this.getValue());
     };
-    
-    this.getValue = function() {  
+
+    this.getValue = function() {
         return $("#" + this.checkbox_ID).is(":checked");
     };
-    
+
     this.overwriteDefault = function () {
         //console.log("Overwrite default value of " + this.checkbox_ID);
         //this.defaultValue = UIComponentList[this.checkbox_ID].defaultValue;
@@ -257,3 +257,4 @@ var AS_CheckBox = function() {
         UIComponentList[this.checkbox_ID].changeEvent(this.value);
     };
 };
+

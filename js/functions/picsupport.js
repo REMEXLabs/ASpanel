@@ -19,7 +19,7 @@
  */
 
 /**
- * activates or deactivates the picsupport
+ * activates or deactivates the pictogram support
  * @param {string} value 
  */
 
@@ -27,8 +27,8 @@ function activatePicsupport(value) {
 	if (value == "on") {
 		console.log("Picsupport activated");
 	} else if (value == "off") {
-		console.log("Picsupport deaktivated");
-		
+		console.log("Picsupport deactivated");
+
 	}
 }
 
@@ -36,7 +36,8 @@ function setPicsupport(value){
 	if (value == true) {
 		console.log("Picsupport activated");
 	} else  {
-		console.log("Picsupport deaktivated");
-		
+		console.log("Picsupport deactivated");
+
 	}
 }
+
