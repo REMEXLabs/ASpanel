@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Annabell Schmidt, Patrick Muenster
+ * Copyright 2015 Hochschule der Medien (HdM) / Stuttgart Media University (Annabell Schmidt, Patrick Muenster)
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -25,9 +25,9 @@
 function changeTextStyle(value){
 	if (value == 'Default'){
 		$('body').css('font-family', '"' + defaultTextStyle + '"');
-	}else{
+	} else {
 		$('body').css('font-family', '"' + value + '"');	
-	}	
+	}
 }
 
 /**
@@ -37,3 +37,4 @@ function changeTextStyle(value){
 function getDefaultTextStyle(){
 	return $('body').css('font-family');
 }
+

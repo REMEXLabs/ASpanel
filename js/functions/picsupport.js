@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Annabell Schmidt, Patrick Muenster
+ * Copyright 2015 Hochschule der Medien (HdM) / Stuttgart Media University (Annabell Schmidt, Patrick Muenster)
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,7 +19,7 @@
  */
 
 /**
- * activates or deactivates the picsupport
+ * activates or deactivates the pictogram support
  * @param {string} value 
  */
 
@@ -27,8 +27,8 @@ function activatePicsupport(value) {
 	if (value == "on") {
 		console.log("Picsupport activated");
 	} else if (value == "off") {
-		console.log("Picsupport deaktivated");
-		
+		console.log("Picsupport deactivated");
+
 	}
 }
 
@@ -36,7 +36,8 @@ function setPicsupport(value){
 	if (value == true) {
 		console.log("Picsupport activated");
 	} else  {
-		console.log("Picsupport deaktivated");
-		
+		console.log("Picsupport deactivated");
+
 	}
 }
+
