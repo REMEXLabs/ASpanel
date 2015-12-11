@@ -182,10 +182,12 @@ var AS_picsupport = (function() {
 
     function activatePicsupport() {
         console.log("Picsupport activated");
+                
     }
 
     function deactivatePicsupport() {
         console.log("Picsupport deaktivated");
+         
     }
 
     /**
@@ -193,9 +195,10 @@ var AS_picsupport = (function() {
      * @param {string} value "on" or "off"
      */
     module.activate = function(value) {
-        if (value == "On") {
+        
+        if (value == "picsupport-on") {          
             activatePicsupport();
-        } else if (value == "Off") {
+        } else if (value == "picsupport-off") {
             deactivatePicsupport();
         }
     };

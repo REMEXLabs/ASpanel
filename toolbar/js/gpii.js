@@ -107,6 +107,16 @@ var GPIIconnector = (function() {
          }
     };
     
+    /**
+     * Clear all setttings from 'gpiiUserSettings'
+     */
+    function clearGpiiUserSettings() {
+        for (var key in gpiiUserSettings) {
+                       
+            gpiiUserSettings[key] = null;
+        }
+    }
+    
     
     /**
      * Getting a preference set from the GPII server.
@@ -250,6 +260,8 @@ var GPIIconnector = (function() {
      * Overwrite default values in UIComponentList of the ASpanel. 
      */
     module.overwriteASpanelUIComponentList = function(return2Main) {
+       
+        
         for (var key in gpiiUserSettings) {
             
             // check for set parameter to avoid 'null' setting
@@ -351,6 +363,8 @@ var GPIIconnector = (function() {
     module.readPreferenceSetFromChromeExtension = function(preferenceSet) {
         console.log("## Reading Preference Set from GPII Chrome Extension");
         
+         clearGpiiUserSettings();
+         
         if (preferenceSet != null || preferenceSet != undefined) {
             
             console.log("### Preference Set reseived from GPII Chrome Extension!"); 
