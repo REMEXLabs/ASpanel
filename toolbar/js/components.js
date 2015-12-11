@@ -58,6 +58,8 @@ var AS_Slider= function() {
         this.slider_ID = slider_ID;
         this.ui_component_id = UIComponentList[slider_ID].ui_component_id;
         this.ui_input_id = UIComponentList[slider_ID].ui_input_id;
+        this.minValue = UIComponentList[slider_ID].minValue;
+        this.maxValue = UIComponentList[slider_ID].maxValue;
             
         // Init slider
         $("#" + slider_ID).slider({
@@ -92,6 +94,18 @@ var AS_Slider= function() {
 
     this.getValue = function() {     
         return $("#" + this.slider_ID).slider("value");
+    };
+    
+    /**
+     * Overwirtes the default value after getting Settings from GPII or Cookie. 
+     */
+    this.overwriteDefault = function () {
+        //console.log("Overwrite default value of " + this.slider_ID);
+        //this.defaultValue = UIComponentList[this.slider_ID].defaultValue;
+        this.value = UIComponentList[this.slider_ID].defaultValue;   
+        $("#" + this.slider_ID).slider("value", this.value);
+        $("#" + this.ui_input_id).val(this.value);
+        UIComponentList[this.slider_ID].changeEvent(this.value);
     };
     
 };
@@ -133,12 +147,19 @@ var AS_DropDown = function() {
         this.dropdown_ID = dropdown_ID;
         this.ui_component_id = UIComponentList[dropdown_ID].ui_component_id;
         
+        
         // Init dropdown    
         $("#" + dropdown_ID).change( function() {
             console.log("Dropdown List " + dropdown_ID + " changed");
             this.value = $("#" + dropdown_ID).val();
-            UIComponentList[dropdown_ID].changeEvent(this.value);            
+            UIComponentList[dropdown_ID].changeEvent(this.value);          
         });
+        
+        $("#" + this.dropdown_ID).val(this.value);
+        
+        // Run change function one time for initialisation.
+        UIComponentList[dropdown_ID].changeEvent(this.value);
+        
     };
     
      /**
@@ -153,6 +174,14 @@ var AS_DropDown = function() {
     
     this.getValue = function() {  
         return $("#" + this.dropdown_ID).val();
+    };
+    
+    this.overwriteDefault = function () {
+        //console.log("Overwrite default value of " + this.dropdown_ID);
+        //this.defaultValue = UIComponentList[this.dropdown_ID].defaultValue.option_id;
+        this.value = UIComponentList[this.dropdown_ID].defaultValue.option_id;
+        $("#" + this.dropdown_ID).val(this.value);
+        UIComponentList[this.dropdown_ID].changeEvent(this.value);   
     };
     
 };
@@ -218,5 +247,13 @@ var AS_CheckBox = function() {
     
     this.getValue = function() {  
         return $("#" + this.checkbox_ID).is(":checked");
+    };
+    
+    this.overwriteDefault = function () {
+        //console.log("Overwrite default value of " + this.checkbox_ID);
+        //this.defaultValue = UIComponentList[this.checkbox_ID].defaultValue;
+        this.value = UIComponentList[this.checkbox_ID].defaultValue;
+        $("#" + this.checkbox_ID).prop('checked', this.value);
+        UIComponentList[this.checkbox_ID].changeEvent(this.value);
     };
 };

@@ -99,10 +99,11 @@ var UIComponentList = {
             de : "Textgröße"
         },
         defaultValue : 1.0,
+        resetValue : 1.0,
         category : "cat1",
         type : TYPE_SLIDER,
         minValue : 1,
-        maxValue : 2,
+        maxValue : 3, // by changing this value the AS_textSize function must be changed too 
         stepSize : 0.1,
         minText : {
             en : "small",
@@ -122,12 +123,14 @@ var UIComponentList = {
 
                 //input validation
                 var multiplier = parseFloat(value);
-                if (multiplier < 1.0) {
-                    multiplier = 1.0;
-                }
-                if (multiplier > 2.0) {
-                    multiplier = 2.0;
-                }
+                
+                // if (multiplier < 1.0) {
+                    // multiplier = 1.0;
+                // }
+                // if (multiplier > 2.0) {
+//                     
+                    // multiplier = 2.0;
+                // }
 
                 parent.AS_textSize.set(multiplier);
             }
@@ -144,6 +147,7 @@ var UIComponentList = {
             de : 'Zeilenabstand'
         },
         defaultValue : 1.2,
+        resetValue : 1.2,
         category : "cat1",
         type : TYPE_SLIDER,
         changeEvent : function(value) {
@@ -176,6 +180,10 @@ var UIComponentList = {
             de : "Textstil"
         },
         defaultValue : {
+            option_id : "default",
+            name : "Default"
+        },
+        resetValue : {
             option_id : "default",
             name : "Default"
         },
@@ -215,6 +223,10 @@ var UIComponentList = {
             option_id : "picsupport-off",
             name : "Off"
         },
+        resetValue : {
+            option_id : "picsupport-off",
+            name : "Off"
+        },
         category : "cat1",
         type : TYPE_DROPDOWN,
         options : [{
@@ -231,13 +243,14 @@ var UIComponentList = {
 
     //#### TABLE OF CONTENT ####//
 
-    "table_of_content" : {
+    table_of_content : {
 
         ui_component_id : "table_of_content",
         title : {
             en : "Show Table of Contents",
             de : "Inhaltsverzeichnis anzeigen"
         },
+        defaultValue : false,
         defaultValue : false,
         category : "cat1",
         type : TYPE_CHECKBOX,

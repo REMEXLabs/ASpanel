@@ -16,15 +16,49 @@
 		<script type="text/javascript" src="js/libs/jquery-ui-1.11.4/jquery-ui.min.js"></script>
 
 		<!-- JavaScript application files -->
+		<script type="text/javascript" src="js/gpii.js"></script>
 		<script type="text/javascript" src="js/app.js"></script>
 		<script type="text/javascript" src="js/config.js"></script>
 		<script type="text/javascript" src="js/components.js"></script>
-		<script type="text/javascript" src="js/gpii.js"></script>
-
 
 	</head>
 
 	<body>
+		
+		<script type="text/javascript">
+			 if (navigator.userAgent.toLowerCase().indexOf('chrome') > -1) {
+            	console.log("# GPII Chrome Extension enabled");
+            	
+                var extensionId = "bkoobcbgaajfpjhfkahlmghbeneedodc";
+                var solutionId = "eu.gpii.olb";
+
+                var port = chrome.runtime.connect(extensionId);
+                port.postMessage({
+                    type : "connectionRequest",
+                    solutionId : solutionId
+                });
+
+                port.onMessage.addListener(function(msg) {
+                    "use strict";
+                    
+                    // At this point, the extension has accepted your connection request
+                    if (msg.accepted) {
+                        console.log("## got an okay from the extension side, now let's wait for settings ...");
+                    }
+                    // Whenever your settings change, you will be notified
+                    if (msg.settings) {
+                        console.log("## got new settings: " + JSON.stringify(msg.settings));
+                        //console.log('## new settings as JSON: ' + msg.settings["links"]);
+                        GPIIconnector.readPreferenceSetFromChromeExtension(msg.settings);
+                    }
+                });
+            } else {
+            	console.log("# GPII Chrome Extension disabled");
+            }		
+		
+			//GPIIconnector.readPreferenceSetFromChromeExtension();
+			
+		</script>
 	
 		<!-- #### ASpanel ####-->
 		
@@ -32,8 +66,9 @@
 			
 		</div>
 
-		
+		<!------------------------>
 		<!-- #### TEMPLATES ####-->
+		<!------------------------>
 			
 		<script id="category-tabs-template" type="text/x-handlebars-template">
 			
@@ -57,7 +92,9 @@
 						<a href="#category-5">{{ApplicationLabel tabs.category_5}}</a>
 					</li>
 				</ul>
-	
+				
+				<!-- #### RESET BUTTON #### -->
+				
 				<button id="myButton" style="float:right;">
 					{{ApplicationLabel buttons.resetButton}}
 				</button>
@@ -68,94 +105,94 @@
 					<!-- TEXT AND DISPLAY -->
 				
 				
-				<div id="category-1-dynamic-components">
-					<!-- DYNAMIC CREATED COMPONENTS -->
-					<ul class="componentlist">
-						
-											
-					</ul>
-					<!-- END OF DYNAMIC CREATED COMPONENTS -->			
-				</div>	
-						
-						
-				<div id="category-1-static-components">		
-					<!-- STATIC CUSTOM COMPONENTS -->
-					<!-- For debuggin purpose. -->
-					<ul class="componentlist">
-					
-						<!-- DROPDOWN COMPONENT -->
-						<!-- <li>
-							<div class="component dropdown-component">
-								<label for="textSytle-dropdown">Textstyle</label>
-								<br />
-								<select name="textstyle" id="textSytle-dropdown">
-									<option value="default">Default</option>
-									<option value="times">Times New Roman</option>
-									<option value="arial">Arial</option>
-									<option value="verdana">Verdana</option>
-								</select>
-							</div>
+					<div id="category-1-dynamic-components">
+						<!-- DYNAMIC CREATED COMPONENTS -->
+						<ul class="componentlist">
 							
-						</li> -->
+												
+						</ul>
+						<!-- END OF DYNAMIC CREATED COMPONENTS -->			
+					</div>	
+							
+							
+					<div id="category-1-static-components">		
+						<!-- STATIC CUSTOM COMPONENTS -->
+						<!-- For debuggin purpose. -->
+						<ul class="componentlist">
 						
-						<!-- SLIDER COMPONENT -->
-						<!-- <li>
-							<div class="component slider-component">
-									
-								<p class="component-label"><label for="textSize">sssgsh</label></p>
-								<div class="force-left clearfix">
-									<div class="force-left slider-label-min">
-										<span>fgsdf</span>
-									</div>
-									<div class="force-left">
-										<div id="textSize_slider"></div>
-									</div>
-									<div class="force-left slider-label-max">
-										<span>dgagf</span>
-									</div>
+							<!-- DROPDOWN COMPONENT -->
+							<!-- <li>
+								<div class="component dropdown-component">
+									<label for="textSytle-dropdown">Textstyle</label>
+									<br />
+									<select name="textstyle" id="textSytle-dropdown">
+										<option value="default">Default</option>
+										<option value="times">Times New Roman</option>
+										<option value="arial">Arial</option>
+										<option value="verdana">Verdana</option>
+									</select>
 								</div>
-								<div class="slider-value" >
-									<input class="slider-value" id="textSize" type="text" readonly>fsgsf</input>
-								</div>
-							</div>
-						</li> -->
-						
-						<!-- CHECKBOX Component -->
-						<!-- <li>
-							<div class="component checkbox-component">
-								<input type="checkbox" id="ckb_toc" class="force-left">
 								
-								<div class="checkbox_text_container">
-									<label for="ckb_toc">Show Table of Content</label>
-									<p class="explanation">Adds a table of contents to the top of the page</p>
+							</li> -->
+							
+							<!-- SLIDER COMPONENT -->
+							<!-- <li>
+								<div class="component slider-component">
+										
+									<p class="component-label"><label for="textSize">sssgsh</label></p>
+									<div class="force-left clearfix">
+										<div class="force-left slider-label-min">
+											<span>fgsdf</span>
+										</div>
+										<div class="force-left">
+											<div id="textSize_slider"></div>
+										</div>
+										<div class="force-left slider-label-max">
+											<span>dgagf</span>
+										</div>
+									</div>
+									<div class="slider-value" >
+										<input class="slider-value" id="textSize" type="text" readonly>fsgsf</input>
+									</div>
 								</div>
-							</div>
-						</li> -->
-						
-						
-						</ul> <!-- END COMPONENTLIST -->			
-						
-				</div>
+							</li> -->
+							
+							<!-- CHECKBOX Component -->
+							<!-- <li>
+								<div class="component checkbox-component">
+									<input type="checkbox" id="ckb_toc" class="force-left">
+									
+									<div class="checkbox_text_container">
+										<label for="ckb_toc">Show Table of Content</label>
+										<p class="explanation">Adds a table of contents to the top of the page</p>
+									</div>
+								</div>
+							</li> -->
+							
+							
+							</ul> <!-- END COMPONENTLIST -->			
+							
+					</div>
 						
 												
 			
-				</div>
+				</div> <!-- END OF CATERGORY TAB-->
 				<div id="category-2">
-					Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-				</div>
+					In development
+				</div> <!-- END OF CATERGORY TAB-->
 				<div id="category-3">
-					Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-				</div>
+					In development
+				</div> <!-- END OF CATERGORY TAB-->
 				<div id="category-4">
-					Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-				</div>
+					In development
+				</div> <!-- END OF CATERGORY TAB-->
 				<div id="category-5">
-					Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-				</div>
+					In development
+				</div> <!-- END OF CATERGORY TAB-->
 				
 			</div>	
 		</script>
-
+		
 
 		<script id="slider-AScomponent" type="text/x-handlebars-template">
 			
@@ -302,22 +339,6 @@
 			</div>
 		</script>
 
-		<!-- HTML5 Slider -->
-		<!-- <div class="force-left clearfix">
-		<div class="force-left">
-		<span>big</span>
-		</div>
-		<div class="force-left">
-		<input type="range" class="slider" min="1" max="2" step="0.1" value=sliderValue>
-		</div>
-		<div class="force-left">
-		<span>small</span>
-		</div>
-		</div>
-		<div>
-		<input type="number" class="slider-input" min="1" max="2" step="0.1" value=sliderValue>
-		times
-		</div> -->
 
 	</body>
 </html>

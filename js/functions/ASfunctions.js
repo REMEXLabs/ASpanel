@@ -30,12 +30,34 @@ var AS_textSize = (function() {
         return document.getElementById('myASpanel-iFrame').contentWindow.Toolbar.UIComponentList[0].defaultValue;
     };
 
+    function fontSize2Mulitplier(inputValue) {
+        if (inputValue < 1.0) {
+            inputValue = 1.0;
+        }
+        else if (inputValue == 3.0) {
+            inputValue = 3.0;
+        }
+        else if (inputValue > 3.0) {
+            if (inputValue < 12.0) {
+                inputValue = 1;
+            } 
+            else if (inputValue >= 36.0) {
+                inputValue = 3;
+            } else if (inputValue > 12.0 && inputValue < 36.0) {
+                inputValue = 3.0 / 36.0 * inputValue;
+            }    
+        }  
+        
+        return inputValue;
+    };
+
     /**
      * Changes the text size according to the parameter multiplier.
      * @param {number} multiplier   multiplier between 1 and 2 with which the text size is multiplied
      */
     module.set = function(multiplier) {
-        var newTextSize = parseFloat(1 * multiplier) + 'em';
+       
+        var newTextSize = parseFloat(1 * fontSize2Mulitplier(multiplier)) + 'em';
         $('body').css('font-size', newTextSize);
     };
 
