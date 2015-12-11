@@ -1,5 +1,5 @@
 /*
-* Copyright 2015 Hochschule der Medien (HdM) / Stuttgart Media Universit (Annabell Schmidt, Patrick Muenster)
+* Copyright 2015 Hochschule der Medien (HdM) / Stuttgart Media University (Annabell Schmidt, Patrick Muenster)
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
 * You may obtain a copy of the License at
