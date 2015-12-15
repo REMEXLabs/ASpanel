@@ -2,6 +2,10 @@
 
 A panel for accessibility settings that can be included in web sites. 
 
+## Usage
+
+See the instructions in the [wiki](https://github.com/REMEXLabs/ASpanel/wiki).
+
 ## Copyright & Licence
 
 Copyright 2015 Hochschule der Medien (HdM) / Stuttgart Media University ([research group Remex](https://www.hdm-stuttgart.de/remex)).
