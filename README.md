@@ -4,7 +4,7 @@ A panel for accessibility settings that can be included in web sites.
 
 ## Copyright & Licence
 
-Copyright 2015 Hochschule der Medien (HdM) / Stuttgart Media University
+Copyright 2015 Hochschule der Medien (HdM) / Stuttgart Media University ([research group Remex](https://www.hdm-stuttgart.de/remex)).
 
 The code of the ASpanel is available under the [Apache 2.0 License](https://github.com/REMEXLabs/ASpanel/blob/master/License.txt).
 
