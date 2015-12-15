@@ -13,6 +13,10 @@
  * limitations under the License.
  */
 
+body {
+    background: #ffffff;
+}
+
 /*#### TABS CONTAINER ####*/
 
 #category-tabs {
