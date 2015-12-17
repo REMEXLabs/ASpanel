@@ -24,7 +24,8 @@ var gpiiUser = {
     carla: 'http://localhost:8081/preferences/olb_Carla',
     lara: 'http://localhost:8081/preferences/olb_Lara',
     alicia: 'http://localhost:8081/preferences/olb_Alicia_app',
-    kim: 'http://localhost:8081/preferences/olb_KimCallahan'
+    kim: 'http://localhost:8081/preferences/olb_KimCallahan',
+    olb_simplified_app: 'http://localhost:8081/preferences/olb_simplified_app'
 };
 
 /*
