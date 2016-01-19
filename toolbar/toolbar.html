@@ -50,6 +50,10 @@
                         console.log("## got new settings: " + JSON.stringify(msg.settings));
                         //console.log('## new settings as JSON: ' + msg.settings["links"]);
                         GPIIconnector.readPreferenceSetFromChromeExtension(msg.settings);
+                    }                     
+                    if (msg.settings === null) {
+                    	console.log("RESET");
+                    	GPIIconnector.readPreferenceSetFromChromeExtension("{}");
                     }
                 });
             } else {
