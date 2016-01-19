@@ -1,16 +1,16 @@
 /*
-* Copyright 2015 Hochschule der Medien (HdM) / Stuttgart Media University
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
+ * Copyright 2015 Hochschule der Medien (HdM) / Stuttgart Media University
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
 
-* http://www.apache.org/licenses/LICENSE-2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
 
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
 */
 
 
@@ -24,7 +24,8 @@ var gpiiUser = {
     carla: 'http://localhost:8081/preferences/olb_Carla',
     lara: 'http://localhost:8081/preferences/olb_Lara',
     alicia: 'http://localhost:8081/preferences/olb_Alicia_app',
-    kim: 'http://localhost:8081/preferences/olb_KimCallahan'
+    kim: 'http://localhost:8081/preferences/olb_KimCallahan',
+    olb_simplified_app: 'http://localhost:8081/preferences/olb_simplified_app'
 };
 
 /*
@@ -334,12 +335,12 @@ var GPIIconnector = (function() {
 
                      case "toc":              
                         UIComponentList.table_of_content.defaultValue = UIComponentList.table_of_content.resetValue;
-                        console.log("Table of Content");
+                        console.log("Table of Content reset");
                         break;
 
                      case "contrastTheme":              
                         //UIComponentList.textSize_slider.defaultValue = textSize2Mulitplier(gpiiUserSettings[key]);
-                        console.log("ContrastTheme");
+                        console.log("ContrastTheme reset");
                         break;
 
                     default:
@@ -369,7 +370,7 @@ var GPIIconnector = (function() {
 
         if (preferenceSet != null || preferenceSet != undefined) {
 
-            console.log("### Preference Set reseived from GPII Chrome Extension!"); 
+            console.log("### Preference Set received from GPII Chrome Extension!"); 
 
             //## simplifiedUiEnabled ##//
             // !To load the new UI as soon as possible, loadUI() is called here already!
@@ -434,7 +435,7 @@ var GPIIconnector = (function() {
                 gpiiUserSettings.inputsLarger = preferenceSet.inputsLarger;
             }
         } else {
-            console.log("### No Preference Set reseived from GPII Chrome Extension!");
+            console.log("### No Preference Set received from GPII Chrome Extension!");
         }
 
         module.overwriteASpanelUIComponentList();
