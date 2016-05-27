@@ -25,10 +25,13 @@
 
 		<title>Testseite</title>
 		<meta name="description" content="">
-		<meta name="author" content="Annabell">
+		<meta name="author" content="Patrick Münster">
+
+		<link href="js/libs/jquery-ui-1.11.4/jquery-ui.css" rel="stylesheet"/>
 
 		<link href="css/normalize.css" rel="stylesheet" />
 		<link href="css/toolbar.css" rel="stylesheet">
+		<link href="css/demostyle.css" rel="stylesheet" />
   
 	</head>
 
@@ -37,18 +40,18 @@
 		<div id="panel-container">
 			<iframe id="myASpanel-iFrame" frameborder="0" src="toolbar/toolbar.html" height="100%" width="100%"></iframe>
 		</div>
+		
 		<div id="toc-container" class="hidden">
 			<p>
 				Inhaltsaufgabe
 			</p>
-			<ul></ul>
 		</div>
 		<div>
 			<header>
 				<h1>Adriaan Koerbagh (Testseite)</h1>
 			</header>
 
-			<main>
+			<article>
 				<p>
 					<strong lang="nl">Adriaan Koerbagh</strong> (* 1633 in Amsterdam; † Oktober 1669 in Amsterdam;
 					Pseudonym <span lang="nl">Vreederijk Waarmond</span>) war ein niederländischer Kritiker von Religion und Moral.
@@ -67,6 +70,7 @@
 					Er galt als scharfer Kritiker der Niederländisch-reformierte Kirche.
 					Von seinem Drucker verraten, wurde Koerbagh schließlich zu zehn Jahren Haft verurteilt, starb jedoch unter den Bedingungen bereits nach einem Jahr.
 					Koerbaghs Kritik an Kirche und Staat war somit in einer Weise angebracht, dass sie ihm am Ende das Leben kostete.
+					<b><a id="transferAmount_Tony_medium" class="videoSelection urclSignLanguageVideo" data-sl_content="transferAmount">Signlanguage Video</a></b>
 				</p>
 				<h2 id"section_2">Werk (Auswahl)</h2>
 				<ul>
@@ -80,7 +84,7 @@
 						<i lang="nl">Een Ligt schynende in duystere plaatsen, om te verligten de voornaamste saaken der Godsgeleerdtheyd en Godsdienst</i>
 					</li>
 				</ul>
-			</main>
+			</article>
 
 			<footer>
 				<p>
@@ -92,15 +96,26 @@
 				</p>
 			</footer>
 		</div>
-
+		
+		<div id="dbx_signLanguageVideo">
+			<video id="signLanguageVideoContainter" controls width="352" height="288">
+				<source id="signLanguageVideo_source" src="" type="video/webm" />
+			</video>
+			
+		</div>
+		
 		<!-- <script type="text/javascript" src="js/libs/jquery-1.10.2.js"></script> -->
 
 		<!-- <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.0.min.js"></script> -->
 		<script type="text/javascript" src="js/libs/jquery-1.10.2.js"></script>
 		<script type="text/javascript" src="js/libs/jquery.mypanel.js"></script>
 		<script type="text/javascript" src="js/libs/jquery.tableofcontents.js"></script>
+		<script type="text/javascript" src="js/libs/jquery-ui-1.11.4/jquery-ui.js"></script>
 
 		<script type="text/javascript" src="js/functions/ASfunctions.js"></script>
+		
+		<script type="text/javascript" src="js/URClight/MyURCLightController.js"></script>
+		<script type="text/javascript" src="js/URClight/myvideo.js"></script>
 
 		<script type="text/javascript">
             var defaultTextStyle = null;
@@ -113,8 +128,12 @@
                     "border" : "none"
                 });
                 //defaultTextStyle = getDefaultTextStyle();
+                // Start URCLight Controller
+          		//URCLightController.run();
             });
+                  
 		</script>
 	</body>
 
 </html>
+
