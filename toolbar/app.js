@@ -334,7 +334,7 @@ $(function() {
 
         // Add Listener to Reset Button.
         document.getElementById("myButton").addEventListener('click', function() {
-            //overwriteDefault(); //@@todo: Pressing "Zurücksetzen" triggers an exception (Chrome console): Uncaught ReferenceError: overwriteDefault is not defined
+            overwriteDefault(); //@@todo: Pressing "Zurücksetzen" triggers an exception (Chrome console): Uncaught ReferenceError: overwriteDefault is not defined
             resetAll();
         }, false);
 

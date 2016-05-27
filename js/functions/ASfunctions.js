@@ -187,7 +187,7 @@ var AS_picsupport = (function() {
     }
 
     function deactivatePicsupport() {
-        console.log("Picsupport deakcivated");
+        console.log("Picsupport deacivated");
 
     }
 

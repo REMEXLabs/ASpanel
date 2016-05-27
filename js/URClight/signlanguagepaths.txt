@@ -1,0 +1,88 @@
+
+/////////
+// TAN //
+/////////
+
+    //#### ASL ####//
+        //## TONY ##//
+    
+        //medium
+        // http://res.openurc.org/retrieve?name=http%3A%2F%2Fhdm-stuttgart.de%2Fcloud4all%2FBanking%2FTan_Tony_medium.webm&modified=2013-07-05T22:27:05.0Z
+        
+    //#### GSG ####// 
+    
+        //## Feldmann ##//
+        //http://res.openurc.org/retrieve?name=http%3A%2F%2Fhdm-stuttgart.de%2Fcloud4all%2FBanking%2FTAN_Feldmann_medium_gsg.webm&modified=2013-07-16T13:33:21.0Z
+    
+    //#### IS ####//
+         //## Feldmann ##// 
+        //http://res.openurc.org/retrieve?name=http%3A%2F%2Fhdm-stuttgart.de%2Fcloud4all%2FBanking%2FTAN_Feldmann_medium_ils.webm&modified=2013-07-16T13:56:30.0Z
+
+/////////////////////
+// TRANSFER AMOUNT //
+/////////////////////
+
+    //#### ASL ####//   
+        //## TONY ##//
+    
+        //medium
+        //http://res.openurc.org/retrieve?name=http%3A%2F%2Fhdm-stuttgart.de%2Fcloud4all%2FBanking%2FtransferAmount_Tony_medium.webm&modified=2013-07-13T15:16:13.0Z
+    
+    //#### GSG ####// 
+    
+        //## Feldmann ##//
+        //http://res.openurc.org/retrieve?name=http%3A%2F%2Fhdm-stuttgart.de%2Fcloud4all%2FBanking%2FtransferAmount_Feldmann_medium_gsg.webm&modified=2013-07-16T08:51:05.0Z
+
+
+///////////////
+// BANK CODE //
+///////////////
+
+    //#### ASL ####//
+        //## MARIA ##//
+    
+        //medium
+        //http://res.openurc.org/retrieve?name=http%3A%2F%2Fhdm-stuttgart.de%2Fcloud4all%2FBanking%2FbankCode_Maria_medium.webm&modified=2013-07-15T20:02:09.0Z
+    
+    //#### GSG ####// 
+    
+        //## Feldmann ##//
+        //http://res.openurc.org/retrieve?name=http%3A%2F%2Fhdm-stuttgart.de%2Fcloud4all%2FBanking%2FBankCode_Feldmann_medium_gsg.webm&modified=2013-07-16T15:02:52.0Z
+    
+////////////////////
+// ACCOUNT NUMBER //
+////////////////////
+
+    //#### ASL ####// 
+    
+        //## MARIA ##//
+    
+        //medium
+        
+        //http://res.openurc.org/retrieve?name=http%3A%2F%2Fhdm-stuttgart.de%2Fcloud4all%2FBanking%2FAccountNumber_Maria_medium.webm&modified=2013-07-15T19:31:09.0Z
+    
+    //#### GSG ####// 
+    
+        //## Feldmann ##//
+        //http://res.openurc.org/retrieve?name=http%3A%2F%2Fhdm-stuttgart.de%2Fcloud4all%2FBanking%2FAccountNumber_Feldmann_medium_gsg.webm&modified=2013-06-23T19:28:29.0Z
+
+
+//////////////
+// RECEIVER //
+//////////////
+
+    //#### ASL ####//
+        //medium
+        
+        //http://res.openurc.org/retrieve?name=http%3A%2F%2Fhdm-stuttgart.de%2Fcloud4all%2FBanking%2FReceiver_Tony_medium.webm&modified=2013-07-15T18:55:43.0Z
+        
+    //#### GSG ####// 
+        
+        //## Feldmann ##//
+        //http://res.openurc.org/retrieve?name=http%3A%2F%2Fhdm-stuttgart.de%2Fcloud4all%2FBanking%2FReceiver_Feldmann_medium_gsg.webm&modified=2013-06-26T17:21:39.0Z
+        
+    //#### IS ####//
+    
+         //## Feldmann ##//
+        http://res.openurc.org/retrieve?name=http%3A%2F%2Fhdm-stuttgart.de%2Fcloud4all%2FBanking%2FReceiver_Feldmann_medium_ils.webm&modified=2013-06-26T17:34:42.0Z
+        
