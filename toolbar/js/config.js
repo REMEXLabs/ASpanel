@@ -138,7 +138,9 @@ var UIComponentList = {
         category : "cat1",
         type : TYPE_SLIDER,
         changeEvent : function(value) {
-            parent.AS_lineSpacing.set(value);
+            if (parent.AS_lineSpacing != undefined) {
+                parent.AS_lineSpacing.set(value);
+            }
         },
         minValue : 1,
         maxValue : 3,
@@ -193,7 +195,9 @@ var UIComponentList = {
             name : "Comic Sans MS"
         }],
         changeEvent : function(value) {
-            parent.AS_textStyle.change(value);
+            if (parent.AS_textStyle != undefined) {
+                parent.AS_textStyle.change(value);
+            }
         }
     },
 
