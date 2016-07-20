@@ -287,7 +287,7 @@ var GPIIconnector = (function() {
 
                      case "pictogramsEnabled":
                         if (gpiiUserSettings[key]) { 
-                            UIComponentList.picsupport_dropdown.defaultValue.option_id = "picsupport-on";                    
+                            UIComponentList.picsupport_dropdown.defaultValue.option_id = "picsupport-en";                    
                         } else {
                             UIComponentList.picsupport_dropdown.defaultValue.option_id = "picsupport-off";
                         }

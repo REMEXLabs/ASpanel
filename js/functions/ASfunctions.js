@@ -181,35 +181,53 @@ var AS_picsupport = (function() {
 
     var module = {};
 
-    function activatePicsupport() {
-        console.log("Picsupport activated");
+    function init() {
+        $('p, h1, h2, ul').not('[data-picto="ignore"]').pictofy();
+        module.needsInit = false;
+        console.log("Picsupport initiated");
+    }
 
+    function activatePicsupport() {
+        if (module.needsInit) {
+            init();
+        }
+        console.log("Picsupport activated");
     }
 
     function deactivatePicsupport() {
+        if (!module.needsInit) {
+            $.fn.pictofy.destroy()
+            module.needsInit = true;
+        }
         console.log("Picsupport deacivated");
-
     }
+
+    module.needsInit = true;
+    module.language = undefined;
 
     /**
      * Activates or deactivates the Picsupport according to the parameter.
      * @param {string} value "on" or "off"
      */
     module.activate = function(value) {
-        
-        if (value == "picsupport-on") {          
-            activatePicsupport();
-        } else if (value == "picsupport-off") {
+        if (value == "picsupport-off") {
             deactivatePicsupport();
+        } else if (/^picsupport-/.test(value)) {
+            var matches = value.match(/^picsupport-(.*)$/);
+            module.setLanguage(matches[1]);
+            activatePicsupport();
         }
     };
 
     /**
      * Choose the used Language for the Picsupport according to the parameter.
-     * @param {string} value UNFINISHED
+     * @param {string} lang
      */
-    module.setLanguage = function(value) {
-
+    module.setLanguage = function(lang) {
+        if (lang !== module.language) {
+            $('[data-picto-cached=cached]').removeAttr('data-picto-cached');
+        }
+        module.language = lang;
     };
 
     return module;
