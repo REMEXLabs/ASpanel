@@ -47,6 +47,53 @@
     });
   }
 
+  function appendStars(name, tooltip, opts) {
+    getRating(name, opts)
+      .done(function(response, status){
+        var content = tooltip.tooltipster('content');
+        $(content).append(generateStars(name, response.rating));
+      })
+      .fail(function(xhr, status, error){
+        console.log(status);
+        console.log(error);
+      });
+  }
+
+  function generateStars(name, rating) {
+    var $container = $('<div>')
+        .addClass('stars')
+        .append();
+
+    for (var i = 1; i <= 5; i++) {
+      var input = $('<input>')
+          .attr('type', 'radio')
+          .attr('name', 'stars')
+          .attr('id', 'star' + i)
+          .val(i)
+          .addClass('stars__star')
+          .toggleClass('stars__star--selected', i <= rating);
+
+      var label = $('<label>')
+          .attr('for', 'star' + i)
+          .text(i);
+
+      $container.append(label);
+      $container.append(input);
+    }
+
+    return $container;
+  }
+
+  function getRating(name, opts) {
+    return $.ajax({
+      url: opts.getRatingUrl(name),
+      crossDomain: true, // tell jQuery CORS is ok
+      xhrFields: {
+        withCredentials: true
+      }
+    });
+  }
+
   $.fn.pictofy = function(options) {
 
     var opts = $.extend({}, $.fn.pictofy.defaults, options);
@@ -60,6 +107,7 @@
       trigger: 'click',
       theme: 'tooltipster-picto',
       onlyOne: true,
+      interactive: true,
       content: opts.preContent,
       functionReady: function(origin) {
 
@@ -70,7 +118,10 @@
         // Remove and spaces
         var word = origin[0].innerHTML.toLowerCase().trim();
         var lang = (typeof AS_picsupport === undefined) ? opts.lang :
-          AS_picsupport.language || opts.lang;
+            AS_picsupport.language || opts.lang;
+
+        var $container = $('<div>')
+            .addClass('picto-container');
 
         $res.queries().addQuery().addProp('http://openurc.org/ns/res#type', 
             'http://openurc.org/restypes#pictogram')
@@ -83,7 +134,16 @@
             if (responses.firstResponse().numberOfResources() > 0) {
               var src = responses.getVeryFirstGlobalAt();
               src = src.replace('http://', '//');
-              origin.tooltipster('content', $('<img>').attr('src', src));
+              var name = responses.firstResponse()
+                  .firstResource()
+                  .props
+                  .find(function(prop){
+                    return prop.name === 'http://openurc.org/ns/res#name';
+                  })
+                  .value;
+              $container.append($('<img>').attr('src', src));
+              origin.tooltipster('content', $container);
+              appendStars(name, origin, opts);
             } else {
               origin.tooltipster('content', opts.failContent);
             }
@@ -105,14 +165,17 @@
     var opts = $.extend({}, $.fn.pictofy.defaults, options);
 
     $('.' + opts.class)
-    .tooltipster('destroy')
-    .each(function(idx, el) {
-      $(el).replaceWith($(el).html());
-    });
+      .tooltipster('destroy')
+      .each(function(idx, el) {
+        $(el).replaceWith($(el).html());
+      });
   };
 
   $.fn.pictofy.defaults = {
     resUrl: 'https://res.openurc.org/',
+    getRatingUrl: function(name) {
+      return 'http://picsupport.gpii.eu/rating/' + encodeURIComponent(name);
+    },
     lang: 'en',
     class: 'picto-tooltip',
     preContent: $('<div style="height:200px;width:200px;">&nbsp;</div>'),
