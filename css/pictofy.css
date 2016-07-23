@@ -42,3 +42,35 @@
 	width: 200px;
 	height: 200px;
 }
+
+.picto-stars {
+  margin: 1em auto;
+  text-align: center;
+  position: absolute;
+  bottom: 0px;
+  width: 200px;
+}
+
+.picto-stars__star {
+  background-image: url('../img/star_full.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  padding-right: 5px;
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.picto-stars:hover > .picto-stars__star {
+  background-image: url('../img/star_full.svg');
+}
+
+.picto-stars__star--empty {
+  background-image: url('../img/star_empty.svg');
+}
+
+.picto-stars__star:hover ~ .picto-stars__star {
+  background-image: url('../img/star_empty.svg');
+}

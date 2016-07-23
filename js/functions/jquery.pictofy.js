@@ -61,23 +61,15 @@
 
   function generateStars(name, rating) {
     var $container = $('<div>')
-        .addClass('stars')
+        .addClass('picto-stars')
         .append();
 
     for (var i = 1; i <= 5; i++) {
-      var input = $('<input>')
-          .attr('type', 'radio')
-          .attr('name', 'stars')
-          .attr('id', 'star' + i)
-          .val(i)
-          .addClass('stars__star')
-          .toggleClass('stars__star--selected', i <= rating);
+      var input = $('<span>')
+          .attr('data-value', i)
+          .addClass('picto-stars__star')
+          .toggleClass('picto-stars__star--empty', i > rating);
 
-      var label = $('<label>')
-          .attr('for', 'star' + i)
-          .text(i);
-
-      $container.append(label);
       $container.append(input);
     }
 
