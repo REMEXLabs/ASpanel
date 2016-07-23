@@ -51,7 +51,7 @@
     getRating(name, opts)
       .done(function(response, status){
         var content = tooltip.tooltipster('content');
-        $(content).append(generateStars(name, response.rating));
+        $(content).append(generateStars(name, response.rating, opts));
       })
       .fail(function(xhr, status, error){
         console.log(status);
@@ -59,18 +59,32 @@
       });
   }
 
-  function generateStars(name, rating) {
+  function generateStars(name, rating, opts) {
     var $container = $('<div>')
         .addClass('picto-stars')
         .append();
 
     for (var i = 1; i <= 5; i++) {
-      var input = $('<span>')
-          .attr('data-value', i)
+      var $input = $('<span>')
           .addClass('picto-stars__star')
           .toggleClass('picto-stars__star--empty', i > rating);
 
-      $container.append(input);
+      $input.click((function(i){
+        return function(){
+          $container.text('Thanks.');
+          $.ajax({
+            url: opts.getRatingUrl(name),
+            method: 'POST',
+            data: { rating: i },
+            crossDomain: true,
+            xhrFields: {
+              withCredentials: true
+            }
+          });
+        }
+      })(i));
+
+      $container.append($input);
     }
 
     return $container;
@@ -79,7 +93,7 @@
   function getRating(name, opts) {
     return $.ajax({
       url: opts.getRatingUrl(name),
-      crossDomain: true, // tell jQuery CORS is ok
+      crossDomain: true,
       xhrFields: {
         withCredentials: true
       }
