@@ -180,7 +180,7 @@
   $.fn.pictofy.defaults = {
     resUrl: 'https://res.openurc.org/',
     getRatingUrl: function(name) {
-      return 'http://picsupport.gpii.eu/rating/' + encodeURIComponent(name);
+      return 'https://picsupport.gpii.eu/rating/' + encodeURIComponent(name);
     },
     lang: 'en',
     class: 'picto-tooltip',
