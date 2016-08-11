@@ -37,10 +37,10 @@
                     type : "connectionRequest",
                     solutionId : solutionId
                 });
-
+			
                 port.onMessage.addListener(function(msg) {
-                    "use strict";
-                    
+                    //"use strict";
+                   
                     // At this point, the extension has accepted your connection request
                     if (msg.accepted) {
                         console.log("## got an okay from the extension side, now let's wait for settings ...");
@@ -63,7 +63,7 @@
 			//GPIIconnector.readPreferenceSetFromChromeExtension();
 			
 		</script>
-	
+		
 		<!-- #### ASpanel ####-->
 		
 		<div id="ASpanel-application">
@@ -312,7 +312,6 @@
 			<p class="explanation">{{component.displayExplanation}}</p>
 			</div>
 		</script>
-
 
 	</body>
 </html>

@@ -136,9 +136,9 @@ var GPIIconnector = (function() {
                 }
                 else {
                     console.log("# GPII Connection failed: no server response!");
-
+                   
                     return2Main();
-                    // Try to get Settings from Chrome Extension
+                     // Try to get Settings from Chrome Extension
                     overwriteDefaultWithGpiiSettings();
                 }
             }
@@ -358,7 +358,7 @@ var GPIIconnector = (function() {
     };
 
     /**
-     *  Parse Ppreference set from chromeExtension.
+     *  Parse preference set from chromeExtension.
      *  The function is called from toolbar.html
      */
     module.readPreferenceSetFromChromeExtension = function(preferenceSet) {
@@ -458,25 +458,25 @@ var GPIIconnector = (function() {
         if(simplified) {
             // If current website is NOT simplified UI then load it.
 
-            // if (currentURL.indexOf("http://mario-ui.gpii.eu") == -1) {
-                // parent.window.location.href = "http://mario-ui.gpii.eu";
-            // }
+            if (currentURL.indexOf("http://mario-ui.gpii.eu") == -1) {
+                parent.window.location.href = "http://mario-ui.gpii.eu";
+            }
 
             // Debugging & Testing
-            if (currentURL.indexOf("file:///C:/xampp/htdocs/Aptana%20Studio%203%20Workspace/ASpanel/simplyfied_index.html") == -1) {
-                parent.window.location.href = "file:///C:/xampp/htdocs/Aptana%20Studio%203%20Workspace/ASpanel/simplyfied_index.html";
-            }
+            // if (currentURL.indexOf("file:///C:/xampp/htdocs/Aptana%20Studio%203%20Workspace/ASpanel/simplyfied_index.html") == -1) {
+                // parent.window.location.href = "file:///C:/xampp/htdocs/Aptana%20Studio%203%20Workspace/ASpanel/simplyfied_index.html";
+            // }
         } else {
             // If current website is NOT default ui then load it.
 
-            // if (currentURL.indexOf("http://olb.gpii.eu") == -1){
-                // parent.window.location.href = "http://olb.gpii.eu";
-            // }
+            if (currentURL.indexOf("http://olb.gpii.eu") == -1){
+                parent.window.location.href = "http://olb.gpii.eu";
+            }
 
             // Debugging & Testing
-            if (currentURL.indexOf("file:///C:/xampp/htdocs/Aptana%20Studio%203%20Workspace/ASpanel/index.html") == -1) {
-                parent.window.location.href = "file:///C:/xampp/htdocs/Aptana%20Studio%203%20Workspace/ASpanel/index.html";
-            }
+            // if (currentURL.indexOf("file:///C:/xampp/htdocs/Aptana%20Studio%203%20Workspace/ASpanel/index.html") == -1) {
+                // parent.window.location.href = "file:///C:/xampp/htdocs/Aptana%20Studio%203%20Workspace/ASpanel/index.html";
+            // }
         }
     };
 
