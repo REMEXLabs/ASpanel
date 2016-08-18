@@ -224,8 +224,11 @@ var UIComponentList = {
             option_id : "picsupport-off", // used as value-attribute in option-tag
             name : "Off" // used as text in option-tag
         }, {
-            option_id : "picsupport-on",
-            name : "On"
+            option_id : "picsupport-en",
+            name : "English"
+        }, {
+            option_id : "picsupport-de",
+            name : "Deutsch"
         }],
         changeEvent : function(value) {
             parent.AS_picsupport.activate(value);
