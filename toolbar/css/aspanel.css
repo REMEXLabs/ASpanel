@@ -13,7 +13,6 @@
 * limitations under the License.
 */
 
-
 body {
     background: #ffffff;
 }
@@ -34,33 +33,30 @@ body {
     padding-bottom: 0px !important;
 }
 
-
-
 .ui-tabs-nav {
     /*background: #666666 url("../js/libs/jquery-ui-1.11.4/images/ui-bg_highlight-soft_75_454545_1x100.png") repeat-x scroll 60% 60%;*/
-    background: #232323;
+    background: #c5c5c5;
     border: none;
     border-radius: 0px;
 }
-
 
 /*#### COMPONENTS ####*/
 
 .componentlist {
     margin-top: 0px;
-    margin-bottom: 0px;  
+    margin-bottom: 0px;
 
 }
 
 .componentlist li {
     /*display: inline;*/
-     float: left;  
+    float: left;
     /** only for testing purposes */
     /*border: 1px solid grey;*/
 }
 
 .componentlist li div.ui-slider {
-    width:100px;
+    width: 100px;
     /** only for testing purposes */
     /*border: 1px solid grey;*/
 }
@@ -72,18 +68,20 @@ body {
 .componentlist label {
     text-transform: uppercase;
     font-size: 1.0em;
+    /* border-bottom: 2px solid black; */
 }
 
 .component {
     /* Width of a component. */
     /*width:200px;*/
-   padding-left: 15px;
-   padding-right: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .component-label {
     margin-top: 0px;
     margin-bottom: 5px;
+    padding-left: 12px;
 }
 
 /* SLIDER */
@@ -96,6 +94,7 @@ body {
 
 input.slider-value {
     width: 20%;
+    text-align: center;
 }
 
 div.slider-value {
@@ -110,18 +109,17 @@ div.slider-value {
 }
 
 .slider-label-min {
-    font-size: 0.8em;
-    width:47px;
-    margin-top: 7px;
+    font-size: 0.7em;
+    width: 47px;
+    margin-top: 11px;
 }
 
 .slider-label-max {
-    font-size: 0.8em;
-    width:47px;
-    margin-top: 7px;
+    font-size: 1em;
+    width: 47px;
+    margin-top: 6.3px;
     text-align: right;
 }
-
 
 /* CHECKBOX */
 
@@ -130,11 +128,10 @@ div.slider-value {
     max-width: 350px;
 }
 
-
-
 .force-left {
     float: left;
     display: inline;
+    text-align: center;
 }
 
 .clearfix:after {
@@ -156,70 +153,126 @@ div.slider-value {
     margin-top: 10px;
 }
 
-
-
 #tablist_container {
-	background-color: #333333;
-	color: #FFFFFF;
+    background-color: #333333;
+    color: #FFFFFF;
 }
+
 #tablist {
-	height: auto;
-	float: left;
-	margin: 0;
+    height: auto;
+    float: left;
+    margin: 0;
 }
+
 #tablist, .componentlist {
-	list-style: none;
-	padding: 0;
-}
-#tablist li {
-	text-decoration: underline;
-	text-transform: uppercase;
-}
-#tablist li {
-	/*float: left;*/
-	margin: 10px;
-	/** only for testing purposes */
-	/*border: 1px solid grey;*/
+    list-style: none;
+    padding: 0;
 }
 
+#tablist li {
+    text-decoration: underline;
+    text-transform: uppercase;
+}
 
+#tablist li {
+    /*float: left;*/
+    margin: 10px;
+    /** only for testing purposes */
+    /*border: 1px solid grey;*/
+}
 
 #reset {
-	float: right;
-	margin: 10px 5px;
+    float: right;
+    margin: 10px 5px;
 }
+
 #tablist li a {
-	color: white;
+    color: white;
 }
+
 #tablist li a.active {
-	font-weight: bold;
+    font-weight: bold;
 }
+
 input[type="checkbox"] {
-	margin: 4px 10px 0 0;
-	border: 1px solid black;
+    margin: 4px 10px 0 0;
+    border: 1px solid black;
 }
 
 .explanation {
-	color: #4D4D4D;
-	padding-top: 5px;
-	font-size: 0.8em;
-	margin: 5px 0;
+    color: #4D4D4D;
+    padding-top: 5px;
+    font-size: 0.8em;
+    margin: 5px 0;
 }
 
 .checkbox_text_container {
-	margin-left: 20px;
-	/*margin-left: 25px;*/
+    margin-left: 20px;
+    /*margin-left: 25px;*/
 }
+
 .slider-box, .dropdown-box {
-	width: 200px;
+    width: 200px;
 }
+
 .slider {
-	width: 100px;
-	margin: 0 5px;
-	padding: 0px;
+    width: 100px;
+    margin: 0 5px;
+    padding: 0px;
 }
 
 .slider-input {
-	width: 50px;
+    width: 50px;
 }
+
+/* changes */
+
+.slidingpanel_hide_trigger {
+    background: #217aaf;
+    color: #fff;
+    text-align: center;
+    line-height: 2em;
+}
+
+.slidingpanel_hide_trigger:hover {
+    background: #004975;
+    cursor: pointer;
+}
+
+.ui-slider .ui-slider-handle {
+    left: 0%;
+    border-radius: 50%;
+    background-color: #434343;
+}
+
+.ui-slider-handle.ui-state-default {
+    cursor: col-resize;
+}
+
+.ui-tabs .ui-tabs-nav li {
+    margin: 0px 3px 1px 0px;
+}
+
+#myButton {
+    padding: 10px;
+    margin: 35px 10px;
+}
+
+@media (max-width: 784px) {
+    .ui-tabs .ui-tabs-nav li,
+    .ui-tabs .ui-tabs-nav li > a {
+        width: 100%;
+    }
+
+    #category-tabs {
+        overflow-y: hidden;
+    }
+
+    #category-tabs .component {
+        width: 300px;
+        padding: 15px;
+    }
+}
+
+
 
