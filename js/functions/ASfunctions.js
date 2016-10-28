@@ -182,7 +182,7 @@ var AS_picsupport = (function() {
     var module = {};
 
     function init() {
-        $('p, h1, h2, ul').not('[data-picto="ignore"]').pictofy();
+        $('p, h1, h2, ul, table').not('[data-picto="ignore"]').pictofy();
         module.needsInit = false;
         console.log("Picsupport initiated");
     }
@@ -215,7 +215,6 @@ var AS_picsupport = (function() {
         } else if (/^picsupport-/.test(value)) {
             var matches = value.match(/^picsupport-(.*)$/);
             module.setLanguage(matches[1]);
-            activatePicsupport();
         }
     };
 
@@ -225,9 +224,10 @@ var AS_picsupport = (function() {
      */
     module.setLanguage = function(lang) {
         if (lang !== module.language) {
-            $('[data-picto-cached=cached]').removeAttr('data-picto-cached');
+            module.language = lang;
+            deactivatePicsupport();
+            activatePicsupport();
         }
-        module.language = lang;
     };
 
     return module;
