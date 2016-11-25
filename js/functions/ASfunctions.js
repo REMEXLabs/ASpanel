@@ -182,7 +182,9 @@ var AS_picsupport = (function() {
     var module = {};
 
     function init() {
-        $('p, h1, h2, ul, table').not('[data-picto="ignore"]').pictofy();
+        $('p, h1, h2, ul, table').not('[data-picto="ignore"]').pictofy({
+            trigger: 'hover'
+        });
         module.needsInit = false;
         console.log("Picsupport initiated");
     }
