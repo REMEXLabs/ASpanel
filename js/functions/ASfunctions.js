@@ -183,7 +183,8 @@ var AS_picsupport = (function() {
 
     function init() {
         $('p, h1, h2, ul, table').not('[data-picto="ignore"]').pictofy({
-            trigger: 'hover'
+            trigger: 'hover',
+            delay: 500
         });
         module.needsInit = false;
         console.log("Picsupport initiated");
