@@ -1,6 +1,6 @@
-﻿# Accessibility Support Panel (ASpanel) 
+# Accessibility Support Panel (ASpanel) 
 
-A panel for accessibility settings that can be included in web sites. 
+A panel for accessibility settings that can be included in web sites. See the [test page (in German)](https://remexlabs.github.io/ASpanel/).
 
 ## Usage
 
@@ -8,7 +8,7 @@ See the instructions in the [wiki](https://github.com/REMEXLabs/ASpanel/wiki).
 
 ## Copyright & Licence
 
-Copyright 2015 Hochschule der Medien (HdM) / Stuttgart Media University ([research group Remex](https://www.hdm-stuttgart.de/remex)).
+Copyright 2015-2017 Hochschule der Medien (HdM) / Stuttgart Media University ([research group Remex](https://www.hdm-stuttgart.de/remex)).
 
 The code of the ASpanel is available under the [Apache 2.0 License](https://github.com/REMEXLabs/ASpanel/blob/master/License.txt).
 
