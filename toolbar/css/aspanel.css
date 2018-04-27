@@ -66,14 +66,13 @@ body {
 }
 
 .componentlist label {
-    text-transform: uppercase;
     font-size: 1.0em;
     /* border-bottom: 2px solid black; */
 }
 
 .component {
     /* Width of a component. */
-    /*width:200px;*/
+    width:8em; /*width:200px;*/
     padding-left: 15px;
     padding-right: 15px;
 }
@@ -109,13 +108,13 @@ div.slider-value {
 }
 
 .slider-label-min {
-    font-size: 0.7em;
+    font-size: 0.8em;
     width: 47px;
     margin-top: 11px;
 }
 
 .slider-label-max {
-    font-size: 1em;
+    font-size: 1.1em;
     width: 47px;
     margin-top: 6.3px;
     text-align: right;
@@ -147,10 +146,20 @@ div.slider-value {
 .dropdown-component {
     max-width: 250px;
 }
+#category-2-dynamic-components .checkbox-component {
+    min-width: 20em;
+}
+#category-2-dynamic-components .checkbox-component, #category-4-dynamic-components .dropdown-component {
+    width: 12em;
+}
 
 .dropdown-component select {
     width: 100%;
     margin-top: 10px;
+}
+
+.dropdown-component select:focus {
+    background-color: aliceblue;
 }
 
 #tablist_container {
@@ -169,7 +178,7 @@ div.slider-value {
     padding: 0;
 }
 
-#tablist li {
+#tablist li {/*@@redundant styles?*/
     text-decoration: underline;
     text-transform: uppercase;
 }
@@ -245,6 +254,12 @@ input[type="checkbox"] {
     background-color: #434343;
 }
 
+.ui-slider .ui-slider-handle:hover, .ui-slider .ui-slider-handle:focus {
+    left: 0%;
+    border-radius: 50%;
+    background-color: black;
+}
+
 .ui-slider-handle.ui-state-default {
     cursor: col-resize;
 }
@@ -256,6 +271,12 @@ input[type="checkbox"] {
 #myButton {
     padding: 10px;
     margin: 35px 10px;
+}
+
+#myButton:hover, #myButton:focus {
+    background-color: #F6F6F6;
+    border: 3px dotted black;
+    padding: 9px;/*reduce padding to avoid repositioning of button text*/
 }
 
 @media (max-width: 784px) {
