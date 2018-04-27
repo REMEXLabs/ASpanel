@@ -292,7 +292,7 @@ var UIComponentList = {
        ui_component_id : "signlanguageInterpreterName_dropdown",
        title : {
             en : 'Interpreter Name',
-            de : 'Interpreter Name'
+            de : 'Name des Gebärdensprachdolmetschers'
         },
         defaultValue : {
             option_id : "Feldmann",
