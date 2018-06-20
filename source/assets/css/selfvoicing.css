@@ -1,0 +1,10 @@
+@charset "utf-8";
+
+/*CSS für Audio controls*/
+.controlElement
+{
+	height:30px; 
+	width:30px;
+	margin:10px;
+	float:left;
+}

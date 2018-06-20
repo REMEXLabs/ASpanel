@@ -2,8 +2,12 @@
 
 A panel for accessibility settings that can be included in web sites. See the [test page (in German)](https://remexlabs.github.io/ASpanel/).
 
-## Usage
+## Build
+You need to have [Node.JS](https://nodejs.org/en/) installed on your system aswell as the [Gulp CLI](https://gulpjs.com). Then run `npm install` in the root directory to get the local dependencies ready.
 
+To build the project you need to run `gulp` inside the root folder. This will generate a deployable version into the `dist` folder. To develop you can use `gulp watch` to automatically rebuild when a file changes. Simply run a server from the dist directory to preview you changes, e.g. by running `php -S localhost:7000`.
+
+## Usage
 See the instructions in the [wiki](https://github.com/REMEXLabs/ASpanel/wiki).
 
 ## Copyright & Licence

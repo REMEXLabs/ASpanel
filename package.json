@@ -1,0 +1,29 @@
+{
+  "name": "aspanel",
+  "version": "1.0.0",
+  "description": "The ASPanel",
+  "main": "gulpfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "del": "^3.0.0",
+    "gulp": "^4.0.0",
+    "gulp-cache": "^1.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-htmlmin": "^4.0.0",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-jshint": "^2.1.0",
+    "gulp-ng-annotate": "^2.1.0",
+    "gulp-noop": "^1.0.0",
+    "gulp-strip-debug": "^3.0.0",
+    "gulp-uglify": "^3.0.0",
+    "jshint": "^2.9.5",
+    "minimist": "^1.2.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Hochschule der Medien (HdM) / Stuttgart Media University (research group Remex)",
+  "license": "Apache-2.0",
+  "repository": "https://github.com/REMEXLabs/ASpanel"
+}

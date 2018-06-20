@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>ASpanel</title>
+
+		<link rel="stylesheet" href="assets/css/jquery-ui.css" />
+		<!-- ASpanel stylesheets -->
+		<link rel="stylesheet" href="assets/css/normalize.css"/>
+		<link rel="stylesheet" href="assets/css/aspanel.css"/>
+
+		<!-- JavaScript libraries -->
+		<script src="assets/js/handlebars.js"></script>
+		<script src="assets/js/jquery.js"></script>
+		<script src="assets/js/jquery-ui.js"></script>
+
+		<!-- openAPE files -->
+		<script src="assets/js/openape.js"></script>
+
+		<!-- JavaScript application files -->
+		<script src="assets/js/gpii.js"></script>
+		<script src="assets/js/app.js"></script>
+		<script src="assets/js/config.js"></script>
+		<script src="assets/js/components.js"></script>
+
+		<!-- Self Voicing stylesheets and scripts -->
+		<link rel="stylesheet" href="assets/css/selfvoicing.css" >
+		<script src="assets/js/SelfVoicingHelper.js"></script>
+		<script src="assets/js/selfvoicing.js"></script>
+
+		<!-- General helper -->
+		<script src="assets/js/ASPanelHelper.js"></script>
+		<script>
+
+		document.addEventListener("languageUpdate", function(evt) {
+			setLanguage(evt.detail);
+		});
+
+		document.addEventListener("personaSelectionUpdate", function(evt) {
+            const persona = evt.detail;
+
+            const preferenceSet = UserPreferenceHelper.getServerPreferenceSet(persona.preferenceSet);
+			ASPanelAssociator.setPanelSettings(preferenceSet["default"]["preferences"]);
+		});
+
+		</script>
+	</head>
+
+	<body>
+
+		<script>
+			 if (navigator.userAgent.toLowerCase().indexOf('chrome') > -1) {
+            	console.log("# GPII Chrome Extension enabled");
+
+                 const extensionId = "bkoobcbgaajfpjhfkahlmghbeneedodc";
+                 const solutionId = "eu.gpii.olb";
+
+                 const port = chrome.runtime.connect(extensionId);
+                 port.postMessage({
+                    type : "connectionRequest",
+                    solutionId : solutionId
+                });
+
+                port.onMessage.addListener(function(msg) {
+                    //"use strict";
+
+                    // At this point, the extension has accepted your connection request
+                    if (msg.accepted) {
+                        console.log("## got an okay from the extension side, now let's wait for settings ...");
+                    }
+                    // Whenever your settings change, you will be notified
+                    if (msg.settings) {
+                        console.log("## got new settings: " + JSON.stringify(msg.settings));
+                        //console.log('## new settings as JSON: ' + msg.settings["links"]);
+                        GPIIconnector.readPreferenceSetFromChromeExtension(msg.settings);
+                    }
+                    if (msg.settings === null) {
+                    	console.log("RESET");
+                    	GPIIconnector.readPreferenceSetFromChromeExtension("{}");
+                    }
+                });
+            } else {
+            	console.log("# GPII Chrome Extension disabled");
+            }
+
+			//GPIIconnector.readPreferenceSetFromChromeExtension();
+
+		</script>
+
+		<!-- #### ASpanel ####-->
+
+		<div id="ASpanel-application">
+
+		</div>
+
+
+		<!-- #### TEMPLATES ####-->
+
+
+		<script id="category-tabs-template" type="text/x-handlebars-template">
+
+			<!-- #### PERSONA SELECTION #### -->
+			<div id="persona-selection" hidden>
+				<ul>
+					{{#each PersonaList}}
+						{{#if @first}}
+							<li class="active" tabindex="1" data-persona-id="{{ this.id }}">
+						{{else}}
+							<li tabindex="1" data-persona-id="{{ this.id }}">
+						{{/if}}
+							<img src="assets/images/{{ this.image }}">
+							<span class="persona-name" aria-describedby="persona-tooltip-{{ this.id }}">{{ this.name }}</span>
+							<span id="persona-tooltip-{{ this.id }}" class="tooltip" role="tooltip" aria-hidden="true">
+								{{ApplicationLabel this.details}}
+							</span>
+						</li>
+					{{/each}}
+				</ul>
+			</div>
+
+			<!-- #### CATEGORY TABS #### -->
+			<div id="category-tabs">
+				<ul>
+					<li>
+						<a href="#category-1">{{ApplicationLabel ApplicationLabels.tabs.category_1}}</a>
+					</li>
+					<li>
+						<a href="#category-2">{{ApplicationLabel ApplicationLabels.tabs.category_2}}</a>
+					</li>
+					<li>
+						<a href="#category-3">{{ApplicationLabel ApplicationLabels.tabs.category_3}}</a>
+					</li>
+					<li>
+						<a href="#category-4">{{ApplicationLabel ApplicationLabels.tabs.category_4}}</a>
+					</li>
+					<li id="persona-tab">
+						<button href="#"
+						data-translation-show="{{ApplicationLabel ApplicationLabels.personas.show}}"
+						data-translation-hide="{{ApplicationLabel ApplicationLabels.personas.hide}}"
+						>{{ApplicationLabel ApplicationLabels.personas.show}}</button>
+					</li>
+				</ul>
+
+				<!-- #### RESET BUTTON #### -->
+
+				<button id="myButton" style="float:right;">
+					{{ApplicationLabel ApplicationLabels.buttons.resetButton}}
+				</button>
+
+				<!-- #### CATEGORY TABS CONTENT #### -->
+
+				<div id="category-1" role="tabpanel" tabindex="0">
+					<!-- TEXT AND DISPLAY -->
+
+					<div id="category-1-dynamic-components">
+						<!-- DYNAMIC CREATED COMPONENTS -->
+						<ul class="componentlist">	</ul>
+						<!-- END OF DYNAMIC CREATED COMPONENTS -->
+					</div>
+
+					<div id="category-1-static-components">
+						<!-- STATIC CUSTOM COMPONENTS -->
+						<ul class="componentlist">
+
+						</ul> <!-- END COMPONENTLIST -->
+					</div>
+
+				</div> <!-- END OF CATERGORY TAB-->
+				<div id="category-2">
+
+					<div id="category-2-dynamic-components">
+						<!-- DYNAMIC CREATED COMPONENTS -->
+						<ul class="componentlist">	</ul> <!-- END COMPONENTLIST -->
+						<!-- END OF DYNAMIC CREATED COMPONENTS -->
+					</div>
+
+					<div id="category-2-static-components">
+						<!-- STATIC CUSTOM COMPONENTS -->
+						<ul class="componentlist">	</ul> <!-- END COMPONENTLIST -->
+					</div>
+
+				</div> <!-- END OF CATERGORY TAB-->
+				<div id="category-3">
+
+					<div id="category-3-dynamic-components">
+						<!-- DYNAMIC CREATED COMPONENTS -->
+						<ul class="componentlist">	</ul> <!-- END COMPONENTLIST -->
+						<!-- END OF DYNAMIC CREATED COMPONENTS -->
+					</div>
+
+				</div> <!-- END OF CATERGORY TAB-->
+
+				<div id="category-4">
+					<div id="category-4-dynamic-components">
+						<!-- DYNAMIC CREATED COMPONENTS -->
+						<ul class="componentlist">	</ul> <!-- END COMPONENTLIST -->
+						<!-- END OF DYNAMIC CREATED COMPONENTS -->
+					</div>
+
+					<div id="category-4-static-components">
+						<!-- STATIC CUSTOM COMPONENTS -->
+						<ul class="componentlist">	</ul>
+						<!-- END COMPONENTLIST -->
+					</div>
+
+					<input type="image" id="play-audio" class="controlElement" src="assets/images/startSound.svg" alt="" onclick="playSound()"  />
+					<div id="audio-controls">
+						<input type="image" class="controlElement" id="resume-audio" src="assets/images/play.svg" alt="" onclick="resumeSound()" />
+						<input type="image" class="controlElement" id="pause-audio" src="assets/images/pause.svg" alt="" onclick="pauseSound()" style="display:none;"/>
+						<input type="image" class="controlElement" id="stop-audio" src="assets/images/stop.svg" alt="" onclick="stopSound()" />
+						<input type="image" class="controlElement" id="rueSpu" src="assets/images/jumpBack.svg" alt="" onclick="spuRue()" />
+						<input type="image" class="controlElement" id="voSpu" src="assets/images/jumpForward.svg" alt="" onclick="spuVo()" />
+					</div>
+
+
+				</div> <!-- END OF CATERGORY TAB-->
+
+			</div>
+		</script>
+
+
+		<script id="slider-AScomponent" type="text/x-handlebars-template">
+
+				<!-- SLIDER COMPONENT -->
+				<li>
+					<div class="component slider-component">
+
+						<p class="component-label"><label for="{{UIComponentID ui_input_id}}">{{UIComponentLabel title}}</label></p>
+						<div class="force-left clearfix">
+							<div class="force-left slider-label-min">
+								<span>{{UIComponentLabel minText}}</span>
+							</div>
+							<div class="force-left">
+								<div id="{{UIComponentID ui_component_id}}"></div>
+							</div>
+							<div class="force-left slider-label-max">
+								<span>{{UIComponentLabel maxText}}</span>
+							</div>
+						</div>
+						<div class="slider-value" >
+							<input class="slider-value" id="{{UIComponentID ui_input_id}}" type="number">{{UIComponentLabel inputLabel}}</input>
+						</div>
+					</div>
+				</li>
+
+		</script>
+
+
+		<script id="dropdown-AScomponent" type="text/x-handlebars-template">
+			<!-- DROPDOWN COMPONENT -->
+			<li>
+				<div class="component dropdown-component">
+					<label for="{{UIComponentID ui_component_id}}">{{UIComponentLabel title}}</label>
+					<br />
+					<select name="{{UIComponentID ui_component_id}}" id="{{UIComponentID ui_component_id}}">
+						{{#each options}}
+						<option value="{{option_id}}">{{name}}</option>
+						{{/each}}
+					</select>
+				</div>
+			</li>
+
+		</script>
+
+		<script id="dropdownWithButton-AScomponent" type="text/x-handlebars-template">
+			<!-- DROPDOWN_WITH_BUTTON COMPONENT -->
+			<li>
+				<div class="component dropdownWithButton-component">
+					<label for="{{UIComponentID ui_component_id}}">{{UIComponentLabel title}}</label>
+					<br />
+					<select name="{{UIComponentID ui_component_id}}" id="{{UIComponentID ui_component_id}}">
+						{{#each options}}
+						<option value="{{option_id}}">{{name}}</option>
+						{{/each}}
+					</select>
+					<button id="{{UIComponentID ui_component_id}}-button" hidden>{{UIComponentLabel button}}</button>
+				</div>
+			</li>
+		</script>
+
+		<script id="colorPicker-AScomponent" type="text/x-handlebars-template">
+			<!-- COLOR_PICKER COMPONENT -->
+			<li>
+				<div class="component colorPicker-component">
+					<label for="{{UIComponentID ui_component_id}}">{{UIComponentLabel title}}</label>
+					<br />
+					<input type="color" id="{{UIComponentID ui_component_id}}">
+				</div>
+			</li>
+		</script>
+
+		<script id="checkbox-AScomponent" type="text/x-handlebars-template">
+			<!-- CHECKBOX COMPONENT-->
+			<li>
+				<div class="component checkbox-component">
+					<input type="checkbox" id="{{UIComponentID ui_component_id}}" class="force-left">
+
+					<div class="checkbox_text_container">
+						<label for="{{UIComponentID ui_component_id}}">{{UIComponentLabel title}}</label>
+						<p class="explanation">{{UIComponentLabel explanation}}</p>
+					</div>
+				</div>
+			</li>
+
+		</script>
+
+	</body>
+</html>

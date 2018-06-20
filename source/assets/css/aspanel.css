@@ -1,0 +1,364 @@
+/*
+* Copyright 2015 Hochschule der Medien (HdM) / Stuttgart Media University
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+
+* http://www.apache.org/licenses/LICENSE-2.0
+
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*/
+
+body {
+    background: #ffffff;
+}
+
+/*#### TABS CONTAINER ####*/
+
+#category-tabs {
+    padding: 0;
+    border: none;
+}
+
+#category-tabs ul {
+    padding-top: 2px;
+}
+
+.ui-tabs-panel {
+    padding-top: 15px !important;
+    padding-bottom: 0 !important;
+}
+
+.ui-tabs-nav {
+    /*background: #666666 url("../js/libs/jquery-ui-1.11.4/images/ui-bg_highlight-soft_75_454545_1x100.png") repeat-x scroll 60% 60%;*/
+    background: #c5c5c5;
+    border: none;
+    border-radius: 0;
+}
+
+/*#### COMPONENTS ####*/
+
+.componentlist {
+    margin-top: 0;
+    margin-bottom: 0;
+
+}
+
+.componentlist li {
+    /*display: inline;*/
+    float: left;
+    /** only for testing purposes */
+    /*border: 1px solid grey;*/
+}
+
+.componentlist li div.ui-slider {
+    width: 100px;
+    /** only for testing purposes */
+    /*border: 1px solid grey;*/
+}
+
+.component input {
+    border: none;
+}
+
+.componentlist label {
+    text-transform: uppercase;
+    font-size: 1.0em;
+    /* border-bottom: 2px solid black; */
+}
+
+.component {
+    /* Width of a component. */
+    /*width:200px;*/
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.component-label {
+    margin-top: 0;
+    margin-bottom: 5px;
+    padding-left: 12px;
+}
+
+/* SLIDER */
+
+.slider-component {
+    width: 200px;
+}
+
+/* Sets the width of input fields of a slider component */
+
+input.slider-value {
+    width: 20%;
+    text-align: center;
+}
+
+div.slider-value {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    font-size: 0.9em;
+}
+
+.ui-slider {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.slider-label-min {
+    font-size: 0.7em;
+    width: 47px;
+    margin-top: 11px;
+}
+
+.slider-label-max {
+    font-size: 1em;
+    width: 47px;
+    margin-top: 6px;
+    text-align: right;
+}
+
+/* CHECKBOX */
+
+.checkbox-component {
+    /* Width of a checkbox component. */
+    max-width: 350px;
+}
+
+.force-left {
+    float: left;
+    display: inline;
+    text-align: center;
+}
+
+.clearfix:after {
+    content: ".";
+    clear: both;
+    display: block;
+    visibility: hidden;
+    height: 0;
+}
+
+/* COLOR PICKER */
+.colorPicker-component input[type="color"]{
+    width: 100%;
+    margin-top: 10px;
+    border: none;
+}
+
+/* CHECKBOX */
+
+.dropdown-component {
+    max-width: 250px;
+}
+
+.dropdown-component select {
+    width: 100%;
+    margin-top: 10px;
+}
+
+#tablist_container {
+    background-color: #333333;
+    color: #FFFFFF;
+}
+
+#tablist {
+    height: auto;
+    float: left;
+    margin: 0;
+}
+
+#tablist, .componentlist {
+    list-style: none;
+    padding: 0;
+}
+
+#tablist li {
+    text-decoration: underline;
+    text-transform: uppercase;
+}
+
+#tablist li {
+    /*float: left;*/
+    margin: 10px;
+    /** only for testing purposes */
+    /*border: 1px solid grey;*/
+}
+
+#reset {
+    float: right;
+    margin: 10px 5px;
+}
+
+#tablist li a {
+    color: white;
+}
+
+#tablist li a.active {
+    font-weight: bold;
+}
+
+input[type="checkbox"] {
+    margin: 4px 10px 0 0;
+    border: 1px solid black;
+}
+
+.explanation {
+    color: #4D4D4D;
+    padding-top: 5px;
+    font-size: 0.8em;
+    margin: 5px 0;
+}
+
+.checkbox_text_container {
+    margin-left: 20px;
+    /*margin-left: 25px;*/
+}
+
+.slider-box, .dropdown-box {
+    width: 200px;
+}
+
+.slider {
+    width: 100px;
+    margin: 0 5px;
+    padding: 0;
+}
+
+.slider-input {
+    width: 50px;
+}
+
+/* changes */
+
+.slidingpanel_hide_trigger {
+    background: #217aaf;
+    color: #fff;
+    text-align: center;
+    line-height: 2em;
+}
+
+.slidingpanel_hide_trigger:hover {
+    background: #004975;
+    cursor: pointer;
+}
+
+.ui-slider .ui-slider-handle {
+    left: 0;
+    border-radius: 50%;
+    background-color: #434343;
+}
+
+.ui-slider-handle.ui-state-default {
+    cursor: col-resize;
+}
+
+.ui-tabs .ui-tabs-nav li {
+    margin: 0 3px 1px 0;
+}
+
+#myButton {
+    padding: 10px;
+    margin: 35px 10px;
+}
+
+@media (max-width: 784px) {
+    .ui-tabs .ui-tabs-nav li,
+    .ui-tabs .ui-tabs-nav li > a {
+        width: 100%;
+    }
+
+    #category-tabs {
+        overflow-y: hidden;
+    }
+
+    #category-tabs .component {
+        width: 300px;
+        padding: 15px;
+    }
+}
+
+/* Persona Selection */
+li#persona-tab {
+    float: right;
+}
+li#persona-tab > button {
+    padding: 10px;
+}
+
+div#persona-selection {
+    height: 5em;
+    background-color: #e9e9e9;
+}
+
+div#persona-selection > ul {
+    list-style-type: none;
+    padding: 0 1em;
+    margin: 0.5em 0;
+    position: absolute;
+    right: 0;
+}
+
+div#persona-selection > ul > li {
+    display: inline-block;
+}
+
+div#persona-selection > ul > li:focus,
+div#persona-selection > ul > li:hover {
+    color: blue;
+}
+
+
+div#persona-selection > ul > li:not(:first-of-type) {
+    margin-left: 1em;
+}
+
+div#persona-selection > ul > li.active {
+    color: red;
+
+}
+
+div#persona-selection > ul > li > img {
+    height: 3em;
+}
+
+div#persona-selection > ul > li > span.persona-name {
+    font-weight: bolder;
+    display: block;
+    height: 1em;
+    text-align: center;
+}
+
+span.tooltip[aria-hidden="true"] {
+    display: none;
+}
+
+span.tooltip[aria-hidden="false"] {
+    display: block;
+}
+
+.tooltip {
+    background: #111;
+    background: rgba(0,0,0,0.9);
+}
+span.tooltip {
+    font-size: 14px;
+    font-weight: normal;
+    position: absolute;
+    padding: 10px 20px;
+    color: #fff;
+    border-radius: 7px;
+    background-clip: padding-box;
+    margin-top: 5px;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 0 3px #000;
+    z-index: 9999;
+}
+
+/* End: Persona Selection */
+
+
